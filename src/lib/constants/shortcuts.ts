@@ -43,12 +43,16 @@ export const KeyboardShortcuts: Record<string, KeyboardShortcut> = {
 export const formatShortcut = (shortcut: KeyboardShortcut): string => {
     const parts: string[] = [];
 
+    const isMac =
+        typeof navigator !== "undefined" &&
+        navigator.platform.indexOf("Mac") === 0;
+
     if (shortcut.ctrlKey) {
-        parts.push(navigator.platform.indexOf("Mac") === 0 ? "⌘" : "Ctrl");
+        parts.push(isMac ? "⌘" : "Ctrl");
     }
 
     if (shortcut.altKey) {
-        parts.push(navigator.platform.indexOf("Mac") === 0 ? "⌥" : "Alt");
+        parts.push(isMac ? "⌥" : "Alt");
     }
 
     if (shortcut.shiftKey) {
