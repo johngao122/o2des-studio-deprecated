@@ -27,6 +27,11 @@ type UIState = {
     // Last action
     lastAction: string;
     setLastAction: (action: string) => void;
+
+    // Shortcuts help dialog
+    isShortcutsHelpOpen: boolean;
+    toggleShortcutsHelp: () => void;
+    setShortcutsHelpOpen: (isOpen: boolean) => void;
 };
 
 export const useUIStore = create<UIState>()(
@@ -62,6 +67,15 @@ export const useUIStore = create<UIState>()(
             // Last action
             lastAction: "",
             setLastAction: (action) => set({ lastAction: action }),
+
+            // Shortcuts help dialog
+            isShortcutsHelpOpen: false,
+            toggleShortcutsHelp: () =>
+                set((state) => ({
+                    isShortcutsHelpOpen: !state.isShortcutsHelpOpen,
+                })),
+            setShortcutsHelpOpen: (isOpen) =>
+                set({ isShortcutsHelpOpen: isOpen }),
         }),
         {
             name: "o2des-ui-storage",

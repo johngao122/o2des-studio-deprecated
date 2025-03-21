@@ -14,6 +14,7 @@ import {
     MarkerType,
 } from "reactflow";
 import { ComponentManager, NodeShape } from "@/components/ComponentManager";
+import { useHistoryStore } from "./useHistoryStore";
 
 type RFState = {
     nodes: Node[];
@@ -22,6 +23,9 @@ type RFState = {
     onEdgesChange: OnEdgesChange;
     onConnect: OnConnect;
     addNode: (label: string, shape?: NodeShape) => void;
+    deleteNode: (nodeId: string) => void;
+    deleteEdge: (edgeId: string) => void;
+    updateNodeData: (nodeId: string, data: any) => void;
     setNodes: (nodes: Node[]) => void;
     setEdges: (edges: Edge[]) => void;
     resetFlow: () => void;
@@ -44,12 +48,22 @@ export const useFlowStore = create<RFState>((set, get) => ({
     edges: initialEdges,
 
     onNodesChange: (changes: NodeChange[]) => {
+        const significantChange = changes.some(
+            (change) =>
+                change.type === "remove" ||
+                (change.type === "position" && change.position)
+        );
+
         set({
             nodes: applyNodeChanges(changes, get().nodes),
         });
     },
 
     onEdgesChange: (changes: EdgeChange[]) => {
+        const significantChange = changes.some(
+            (change) => change.type === "remove"
+        );
+
         set({
             edges: applyEdgeChanges(changes, get().edges),
         });
@@ -73,6 +87,43 @@ export const useFlowStore = create<RFState>((set, get) => ({
             label
         );
         set({ nodes: [...nodes, newNode] });
+    },
+
+    deleteNode: (nodeId: string) => {
+        const { nodes, edges } = get();
+        // Remove the node
+        const newNodes = nodes.filter((node) => node.id !== nodeId);
+        // Remove any edges connected to this node
+        const newEdges = edges.filter(
+            (edge) => edge.source !== nodeId && edge.target !== nodeId
+        );
+        set({
+            nodes: newNodes,
+            edges: newEdges,
+        });
+    },
+
+    deleteEdge: (edgeId: string) => {
+        const { edges } = get();
+        const newEdges = edges.filter((edge) => edge.id !== edgeId);
+        set({ edges: newEdges });
+    },
+
+    updateNodeData: (nodeId: string, data: any) => {
+        const { nodes } = get();
+        const newNodes = nodes.map((node) => {
+            if (node.id === nodeId) {
+                return {
+                    ...node,
+                    data: {
+                        ...node.data,
+                        ...data,
+                    },
+                };
+            }
+            return node;
+        });
+        set({ nodes: newNodes });
     },
 
     setNodes: (nodes: Node[]) => set({ nodes }),
