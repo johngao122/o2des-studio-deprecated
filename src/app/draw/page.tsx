@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, ChangeEvent, useRef, useEffect } from "react";
+import React, {
+    useCallback,
+    ChangeEvent,
+    useRef,
+    useEffect,
+    useState,
+} from "react";
 import ReactFlow, {
     Background,
     Controls,
@@ -10,6 +16,10 @@ import ReactFlow, {
     ReactFlowInstance,
     Edge,
     MarkerType,
+    Node,
+    NodeChange,
+    EdgeChange,
+    Connection,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { saveAs } from "file-saver";
@@ -26,6 +36,10 @@ import { useUIStore } from "@/lib/store/useUIStore";
 import { useProjectStore } from "@/lib/store/useProjectStore";
 import exampleDiagram from "@/data/examplediagram.json";
 import { Toaster, toast } from "sonner";
+import { useHistoryStore } from "@/lib/store/useHistoryStore";
+import { KeyboardShortcuts } from "@/lib/constants/shortcuts";
+import { useKeyboardShortcuts } from "@/lib/hooks/useKeyboardShortcuts";
+import { ShortcutsHelp } from "@/components/ShortcutsHelp";
 
 const nodeTypes: NodeTypes = {
     rectangleNode: RectangleNode,
@@ -33,8 +47,15 @@ const nodeTypes: NodeTypes = {
     diamondNode: DiamondNode,
 };
 
+const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return (...args: any[]) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+    };
+};
+
 export default function Draw() {
-    // Flow state from Zustand
     const {
         nodes,
         edges,
@@ -42,12 +63,25 @@ export default function Draw() {
         onEdgesChange,
         onConnect,
         addNode,
+        deleteNode,
+        deleteEdge,
+        updateNodeData,
         setNodes,
         setEdges,
         loadFlow,
+        resetFlow,
     } = useFlowStore();
 
-    // UI state from Zustand
+    const {
+        addToHistory,
+        undo,
+        redo,
+        canUndo,
+        canRedo,
+        clearHistory,
+        debugHistory,
+    } = useHistoryStore();
+
     const {
         snapToGrid,
         gridSize,
@@ -58,9 +92,11 @@ export default function Draw() {
         lastAction,
         isDarkMode,
         toggleDarkMode,
+        isShortcutsHelpOpen,
+        toggleShortcutsHelp,
+        setShortcutsHelpOpen,
     } = useUIStore();
 
-    // Project state from Zustand
     const {
         projectName,
         setProjectName,
@@ -72,8 +108,169 @@ export default function Draw() {
     } = useProjectStore();
 
     const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
+    const shouldCaptureHistory = useRef<boolean>(true);
+    const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+    const isInitialSetupComplete = useRef<boolean>(false);
+    const hasInitialized = useRef<boolean>(false);
 
-    // Apply dark mode
+    useEffect(() => {
+        if (hasInitialized.current) {
+            return;
+        }
+
+        console.log("Initializing session (first-time only)...");
+        hasInitialized.current = true;
+
+        const pastStates = useHistoryStore.getState().past;
+        const hasPastStates = pastStates.length > 0;
+
+        if (hasPastStates) {
+            console.log("Found history states:", pastStates.length);
+            debugHistory();
+
+            const lastState = pastStates[pastStates.length - 1];
+            console.log("Restoring latest state from history:", {
+                nodes: lastState.nodes.length,
+                edges: lastState.edges.length,
+            });
+
+            shouldCaptureHistory.current = false;
+            loadFlow(lastState.nodes, lastState.edges);
+            setLastAction("Restored from previous session");
+
+            saveCurrentState(lastState.nodes, lastState.edges);
+
+            setTimeout(() => {
+                shouldCaptureHistory.current = true;
+            }, 1500);
+        } else if (savedNodes.length > 0 || savedEdges.length > 0) {
+            console.log("No history found, loading from auto-save");
+
+            shouldCaptureHistory.current = false;
+            loadFlow(savedNodes, savedEdges);
+            setLastAction("Loaded from auto-save");
+
+            setTimeout(() => {
+                addToHistory(savedNodes, savedEdges);
+                shouldCaptureHistory.current = true;
+            }, 1000);
+        } else {
+            setTimeout(() => {
+                shouldCaptureHistory.current = true;
+            }, 1000);
+        }
+    }, []);
+
+    const captureHistory = useCallback(
+        debounce((nodes: Node[], edges: Edge[]) => {
+            console.log("Debounced history capture", {
+                nodes: nodes.length,
+                edges: edges.length,
+            });
+            addToHistory(nodes, edges);
+        }, 500),
+        [addToHistory]
+    );
+
+    const saveStateToHistory = useCallback(() => {
+        console.log("Explicitly saving state to history", {
+            nodes: nodes.length,
+            edges: edges.length,
+        });
+        addToHistory(nodes, edges);
+    }, [nodes, edges, addToHistory]);
+
+    useEffect(() => {
+        if (
+            shouldCaptureHistory.current &&
+            (nodes.length > 0 || edges.length > 0)
+        ) {
+            console.log("State changed, scheduling history capture");
+            captureHistory(nodes, edges);
+        } else {
+            console.log("Skipping history capture - change from undo/redo");
+        }
+
+        shouldCaptureHistory.current = true;
+    }, [nodes, edges, captureHistory]);
+
+    const handleUndo = useCallback(() => {
+        console.log("Undo handler called");
+        debugHistory();
+
+        shouldCaptureHistory.current = false;
+
+        const previous = undo();
+        if (previous) {
+            console.log("Applying previous state from undo:", {
+                nodes: previous.nodes.length,
+                edges: previous.edges.length,
+            });
+
+            loadFlow(previous.nodes, previous.edges);
+            setLastAction("Undo");
+
+            setTimeout(() => {
+                debugHistory();
+            }, 100);
+        } else {
+            console.log("No previous state to undo to");
+        }
+    }, [undo, loadFlow, setLastAction, debugHistory]);
+
+    const handleRedo = useCallback(() => {
+        console.log("Redo handler called");
+        debugHistory();
+
+        shouldCaptureHistory.current = false;
+
+        const next = redo();
+        if (next) {
+            console.log("Applying next state from redo:", {
+                nodes: next.nodes.length,
+                edges: next.edges.length,
+            });
+
+            loadFlow(next.nodes, next.edges);
+            setLastAction("Redo");
+
+            setTimeout(() => {
+                debugHistory();
+            }, 100);
+        } else {
+            console.log("No next state to redo to");
+        }
+    }, [redo, loadFlow, setLastAction, debugHistory]);
+
+    const shortcutActions = {
+        SAVE: () => handleSave(),
+        LOAD: () => handleLoadClick(),
+        NEW: () => {
+            if (
+                window.confirm(
+                    "Start a new diagram? Unsaved changes will be lost."
+                )
+            ) {
+                resetFlow();
+                clearHistory();
+                setProjectName("Untitled Project");
+                setLastAction("New diagram");
+            }
+        },
+        UNDO: () => canUndo && handleUndo(),
+        REDO: () => canRedo && handleRedo(),
+        ZOOM_IN: () => handleZoomIn(),
+        ZOOM_OUT: () => handleZoomOut(),
+        FIT_VIEW: () => handleFitView(),
+        TOGGLE_DARK_MODE: () => toggleDarkMode(),
+        TOGGLE_SIDEBAR: () => useUIStore.getState().toggleSidebar(),
+        TOGGLE_MINIMAP: () => useUIStore.getState().toggleMiniMap(),
+        TOGGLE_CONTROLS: () => useUIStore.getState().toggleControls(),
+        SHOW_SHORTCUTS: () => setShortcutsHelpOpen(true),
+    };
+
+    useKeyboardShortcuts(KeyboardShortcuts, shortcutActions);
+
     useEffect(() => {
         if (isDarkMode) {
             document.documentElement.classList.add("dark");
@@ -82,30 +279,32 @@ export default function Draw() {
         }
     }, [isDarkMode]);
 
-    // Auto-save effect
     useEffect(() => {
-        // Only save if there are changes (nodes or edges have changed)
+        const syncTimer = setTimeout(() => {
+            if (nodes.length > 0 || edges.length > 0) {
+                console.log("Syncing project state with current flow", {
+                    nodes: nodes.length,
+                    edges: edges.length,
+                });
+                saveCurrentState(nodes, edges);
+            }
+        }, 1000);
+
+        return () => clearTimeout(syncTimer);
+    }, [nodes, edges, saveCurrentState]);
+
+    useEffect(() => {
         const autoSaveTimer = setTimeout(() => {
             saveCurrentState(nodes, edges);
             setLastAction("Auto-saved");
-        }, 10000); // Auto-save every 10 seconds of inactivity
+        }, 10000);
 
         return () => clearTimeout(autoSaveTimer);
     }, [nodes, edges, saveCurrentState, setLastAction]);
 
-    // Load saved state on initial load
-    useEffect(() => {
-        if (savedNodes.length > 0 || savedEdges.length > 0) {
-            loadFlow(savedNodes, savedEdges);
-            setLastAction("Loaded from auto-save");
-        }
-    }, []);
-
-    // Add this useEffect to listen for the loadExampleDiagram event
     useEffect(() => {
         const handleLoadExample = () => {
             try {
-                // Process the example diagram data
                 const loadedNodes = exampleDiagram.nodes.map((node: any) => ({
                     ...node,
                     draggable: true,
@@ -117,11 +316,9 @@ export default function Draw() {
                     markerEnd: edge.markerEnd || { type: MarkerType.Arrow },
                 }));
 
-                // Load the data into the flow
                 loadFlow(loadedNodes, loadedEdges);
                 saveCurrentState(loadedNodes, loadedEdges);
 
-                // Update ReactFlow view
                 if (reactFlowInstance.current) {
                     setTimeout(() => {
                         reactFlowInstance.current?.fitView({ padding: 0.2 });
@@ -141,6 +338,15 @@ export default function Draw() {
         };
     }, [loadFlow, saveCurrentState, setLastAction, reactFlowInstance]);
 
+    const handleAddNode = (label: string, shape: NodeShape = "rectangle") => {
+        addNode(label, shape);
+
+        setTimeout(() => {
+            saveStateToHistory();
+        }, 50);
+        setLastAction(`Added ${shape} node: ${label}`);
+    };
+
     const handleSave = () => {
         const diagramData = JSON.stringify(
             {
@@ -154,6 +360,7 @@ export default function Draw() {
         const blob = new Blob([diagramData], { type: "application/json" });
         saveAs(blob, `${projectName.replace(/\s+/g, "_")}.json`);
         saveCurrentState(nodes, edges);
+        saveStateToHistory();
         addRecentProject(projectName);
         setLastAction(`Saved: ${projectName}`);
     };
@@ -169,7 +376,6 @@ export default function Draw() {
                     console.log("Parsing JSON data...");
                     const loadedData = JSON.parse(content);
 
-                    // Validate required structure
                     if (
                         !loadedData.nodes ||
                         !Array.isArray(loadedData.nodes) ||
@@ -181,7 +387,6 @@ export default function Draw() {
                         );
                     }
 
-                    // Validate nodes structure
                     for (const node of loadedData.nodes) {
                         if (!node.id || !node.position || !node.data) {
                             throw new Error(
@@ -190,7 +395,6 @@ export default function Draw() {
                         }
                     }
 
-                    // Validate edges structure
                     for (const edge of loadedData.edges) {
                         if (!edge.source || !edge.target) {
                             throw new Error(
@@ -201,7 +405,6 @@ export default function Draw() {
 
                     console.log("Loaded data:", loadedData);
 
-                    // Ensure nodes have all required properties
                     console.log("Processing nodes...");
                     const loadedNodes = loadedData.nodes?.map((node: any) => {
                         const processedNode = {
@@ -222,7 +425,6 @@ export default function Draw() {
                         return processedNode;
                     });
 
-                    // Ensure edges have all required properties
                     console.log("Processing edges...");
                     const loadedEdges = loadedData.edges?.map((edge: any) => {
                         const processedEdge = {
@@ -253,12 +455,10 @@ export default function Draw() {
                         addRecentProject(loadedData.projectName);
                     }
 
-                    // Clear existing nodes and edges before loading new ones
                     console.log("Clearing existing nodes and edges...");
                     setNodes([]);
                     setEdges([]);
 
-                    // Update the flow with a slight delay to ensure clear happens first
                     console.log("Starting load timeout...");
                     setTimeout(() => {
                         console.log("Loading nodes and edges into flow...");
@@ -269,7 +469,10 @@ export default function Draw() {
                         console.log("Saving current state...");
                         saveCurrentState(loadedNodes, loadedEdges);
 
-                        // Fit view after loading
+                        setTimeout(() => {
+                            saveStateToHistory();
+                        }, 100);
+
                         if (reactFlowInstance.current) {
                             console.log("Fitting view...");
                             reactFlowInstance.current.fitView({ padding: 0.2 });
@@ -311,9 +514,8 @@ export default function Draw() {
         }
     };
 
-    const handleAddNode = (label: string, shape: NodeShape = "rectangle") => {
-        addNode(label, shape);
-        setLastAction(`Added ${shape} node: ${label}`);
+    const handleLoadClick = () => {
+        document.getElementById("load-file-input")?.click();
     };
 
     const handleZoomIn = () => {
@@ -337,6 +539,92 @@ export default function Draw() {
         }
     };
 
+    const handleNodesChange = useCallback(
+        (changes: NodeChange[]) => {
+            const significantChange = changes.some(
+                (change) =>
+                    change.type === "remove" ||
+                    (change.type === "position" &&
+                        change.position &&
+                        change.dragging === false)
+            );
+
+            onNodesChange(changes);
+
+            if (significantChange) {
+                setTimeout(() => {
+                    saveStateToHistory();
+                    console.log("Saved history after significant node change");
+                }, 50);
+            }
+        },
+        [onNodesChange, saveStateToHistory]
+    );
+
+    const handleEdgesChange = useCallback(
+        (changes: EdgeChange[]) => {
+            const significantChange = changes.some(
+                (change) => change.type === "remove"
+            );
+            onEdgesChange(changes);
+
+            if (significantChange) {
+                setTimeout(() => {
+                    saveStateToHistory();
+                    console.log("Saved history after significant edge change");
+                }, 50);
+            }
+        },
+        [onEdgesChange, saveStateToHistory]
+    );
+
+    const handleConnect = useCallback(
+        (params: Connection) => {
+            onConnect(params);
+            setTimeout(() => {
+                saveStateToHistory();
+                console.log("Saved history after connection");
+            }, 50);
+        },
+        [onConnect, saveStateToHistory]
+    );
+
+    const handleDeleteNode = useCallback(
+        (nodeId: string) => {
+            deleteNode(nodeId);
+            setTimeout(() => {
+                saveStateToHistory();
+                setLastAction(`Deleted node: ${nodeId}`);
+            }, 50);
+        },
+        [deleteNode, saveStateToHistory, setLastAction]
+    );
+
+    const handleDeleteEdge = useCallback(
+        (edgeId: string) => {
+            deleteEdge(edgeId);
+            setTimeout(() => {
+                saveStateToHistory();
+                setLastAction(`Deleted connection`);
+            }, 50);
+        },
+        [deleteEdge, saveStateToHistory, setLastAction]
+    );
+
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            console.log("Before unload - saving final state");
+            addToHistory(nodes, edges);
+            saveCurrentState(nodes, edges);
+        };
+
+        window.addEventListener("beforeunload", handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
+    }, [nodes, edges, addToHistory, saveCurrentState]);
+
     return (
         <div
             className={`h-screen w-full flex flex-col ${
@@ -354,6 +642,9 @@ export default function Draw() {
                 onFitView={handleFitView}
                 onToggleDarkMode={toggleDarkMode}
                 isDarkMode={isDarkMode}
+                onUndo={canUndo ? handleUndo : undefined}
+                onRedo={canRedo ? handleRedo : undefined}
+                onShowShortcuts={() => setShortcutsHelpOpen(true)}
                 lastAction={lastAction}
             />
             <div className="flex-1 flex">
@@ -363,9 +654,9 @@ export default function Draw() {
                         <ReactFlow
                             nodes={nodes}
                             edges={edges}
-                            onNodesChange={onNodesChange}
-                            onEdgesChange={onEdgesChange}
-                            onConnect={onConnect}
+                            onNodesChange={handleNodesChange}
+                            onEdgesChange={handleEdgesChange}
+                            onConnect={handleConnect}
                             snapToGrid={snapToGrid}
                             snapGrid={[gridSize, gridSize]}
                             nodeTypes={nodeTypes}
@@ -377,6 +668,24 @@ export default function Draw() {
                             fitViewOptions={{ padding: 0.2 }}
                             onInit={(instance) => {
                                 reactFlowInstance.current = instance;
+                            }}
+                            deleteKeyCode={["Backspace", "Delete"]}
+                            onNodeDoubleClick={(_, node) => {
+                                const newLabel = prompt(
+                                    "Enter new name for node:",
+                                    node.data?.label
+                                );
+                                if (newLabel) {
+                                    updateNodeData(node.id, {
+                                        label: newLabel,
+                                    });
+                                    setTimeout(() => {
+                                        saveStateToHistory();
+                                        setLastAction(
+                                            `Renamed node to: ${newLabel}`
+                                        );
+                                    }, 50);
+                                }
                             }}
                         >
                             {miniMapVisible && <MiniMap />}
@@ -393,6 +702,12 @@ export default function Draw() {
                     </div>
                 </div>
             </div>
+
+            {/* Shortcuts help dialog */}
+            <ShortcutsHelp
+                isOpen={isShortcutsHelpOpen}
+                onClose={() => setShortcutsHelpOpen(false)}
+            />
         </div>
     );
 }

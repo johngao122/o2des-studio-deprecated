@@ -31,6 +31,7 @@ import {
     Moon,
     Sun,
 } from "lucide-react";
+import { KeyboardShortcuts, formatShortcut } from "@/lib/constants/shortcuts";
 
 interface ToolbarProps {
     onSave?: () => void;
@@ -43,6 +44,7 @@ interface ToolbarProps {
     onToggleDarkMode?: () => void;
     isDarkMode?: boolean;
     lastAction?: string;
+    onShowShortcuts?: () => void;
 }
 
 export function Toolbar({
@@ -56,6 +58,7 @@ export function Toolbar({
     onToggleDarkMode,
     isDarkMode,
     lastAction,
+    onShowShortcuts,
 }: ToolbarProps) {
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,12 +87,26 @@ export function Toolbar({
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                         <DropdownMenuItem onSelect={onSave}>
-                            <Save className="mr-2 h-4 w-4" />
-                            Save
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Save className="mr-2 h-4 w-4" />
+                                    Save
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.SAVE)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={handleFileUploadClick}>
-                            <Upload className="mr-2 h-4 w-4" />
-                            Load
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Upload className="mr-2 h-4 w-4" />
+                                    Load
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.LOAD)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem
                             onSelect={() => {
@@ -121,25 +138,60 @@ export function Toolbar({
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                         <DropdownMenuItem onSelect={onUndo}>
-                            <Undo className="mr-2 h-4 w-4" />
-                            Undo
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Undo className="mr-2 h-4 w-4" />
+                                    Undo
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.UNDO)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem onSelect={onRedo}>
-                            <Redo className="mr-2 h-4 w-4" />
-                            Redo
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Redo className="mr-2 h-4 w-4" />
+                                    Redo
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.REDO)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <Separator className="my-1" />
                         <DropdownMenuItem>
-                            <Copy className="mr-2 h-4 w-4" />
-                            Copy
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Copy className="mr-2 h-4 w-4" />
+                                    Copy
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.COPY)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <Scissors className="mr-2 h-4 w-4" />
-                            Cut
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Scissors className="mr-2 h-4 w-4" />
+                                    Cut
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.CUT)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <ClipboardPaste className="mr-2 h-4 w-4" />
-                            Paste
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <ClipboardPaste className="mr-2 h-4 w-4" />
+                                    Paste
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.PASTE)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -153,30 +205,55 @@ export function Toolbar({
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                         <DropdownMenuItem onSelect={onZoomIn}>
-                            <ZoomIn className="mr-2 h-4 w-4" />
-                            Zoom In
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <ZoomIn className="mr-2 h-4 w-4" />
+                                    Zoom In
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.ZOOM_IN)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem onSelect={onZoomOut}>
-                            <ZoomOut className="mr-2 h-4 w-4" />
-                            Zoom Out
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <ZoomOut className="mr-2 h-4 w-4" />
+                                    Zoom Out
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.ZOOM_OUT)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <DropdownMenuItem onSelect={onFitView}>
-                            <Maximize className="mr-2 h-4 w-4" />
-                            Fit to View
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Maximize className="mr-2 h-4 w-4" />
+                                    Fit to View
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(KeyboardShortcuts.FIT_VIEW)}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                         <Separator className="my-1" />
                         <DropdownMenuItem onSelect={onToggleDarkMode}>
-                            {isDarkMode ? (
-                                <>
-                                    <Sun className="mr-2 h-4 w-4" />
-                                    Light Mode
-                                </>
-                            ) : (
-                                <>
-                                    <Moon className="mr-2 h-4 w-4" />
-                                    Dark Mode
-                                </>
-                            )}
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    {isDarkMode ? (
+                                        <Sun className="mr-2 h-4 w-4" />
+                                    ) : (
+                                        <Moon className="mr-2 h-4 w-4" />
+                                    )}
+                                    {isDarkMode ? "Light Mode" : "Dark Mode"}
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(
+                                        KeyboardShortcuts.TOGGLE_DARK_MODE
+                                    )}
+                                </span>
+                            </div>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -208,6 +285,45 @@ export function Toolbar({
                             <Plus className="mr-2 h-4 w-4" />
                             Add Component
                         </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Settings className="mr-2 h-4 w-4" />
+                                    Toggle Sidebar
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(
+                                        KeyboardShortcuts.TOGGLE_SIDEBAR
+                                    )}
+                                </span>
+                            </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Eye className="mr-2 h-4 w-4" />
+                                    Toggle Minimap
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(
+                                        KeyboardShortcuts.TOGGLE_MINIMAP
+                                    )}
+                                </span>
+                            </div>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Settings className="mr-2 h-4 w-4" />
+                                    Toggle Controls
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(
+                                        KeyboardShortcuts.TOGGLE_CONTROLS
+                                    )}
+                                </span>
+                            </div>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
 
@@ -219,6 +335,19 @@ export function Toolbar({
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
+                        <DropdownMenuItem onSelect={onShowShortcuts}>
+                            <div className="flex justify-between w-full items-center">
+                                <div className="flex items-center">
+                                    <Settings className="mr-2 h-4 w-4" />
+                                    Keyboard Shortcuts
+                                </div>
+                                <span className="text-xs text-muted-foreground ml-8">
+                                    {formatShortcut(
+                                        KeyboardShortcuts.SHOW_SHORTCUTS
+                                    )}
+                                </span>
+                            </div>
+                        </DropdownMenuItem>
                         <DropdownMenuItem>
                             <HelpCircle className="mr-2 h-4 w-4" />
                             Documentation
