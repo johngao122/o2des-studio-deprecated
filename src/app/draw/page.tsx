@@ -25,11 +25,7 @@ import "reactflow/dist/style.css";
 import { saveAs } from "file-saver";
 import { ComponentDrawer } from "@/components/ComponentDrawer";
 import { NodeShape } from "@/components/ComponentManager";
-import {
-    RectangleNode,
-    EllipseNode,
-    DiamondNode,
-} from "@/components/nodes/CustomNodes";
+import { nodeTypes } from "@/components/nodes/NodeRegistry";
 import { Toolbar } from "@/components/Toolbar";
 import { useFlowStore } from "@/lib/store/useFlowStore";
 import { useUIStore } from "@/lib/store/useUIStore";
@@ -40,12 +36,6 @@ import { useHistoryStore } from "@/lib/store/useHistoryStore";
 import { KeyboardShortcuts } from "@/lib/constants/shortcuts";
 import { useKeyboardShortcuts } from "@/lib/hooks/useKeyboardShortcuts";
 import { ShortcutsHelp } from "@/components/ShortcutsHelp";
-
-const nodeTypes: NodeTypes = {
-    rectangleNode: RectangleNode,
-    ellipseNode: EllipseNode,
-    diamondNode: DiamondNode,
-};
 
 const debounce = (func: Function, wait: number) => {
     let timeout: NodeJS.Timeout;

@@ -1,89 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { NodeShape } from "./ComponentManager";
 import React from "react";
-
-const nodeStyles = {
-    base: {
-        padding: "5px",
-        border: "1px solid #1a192b",
-        width: "70%",
-        height: "30px",
-        fontSize: "12px",
-        color: "#222",
-        textAlign: "center" as const,
-        backgroundColor: "white",
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    rectangle: {
-        borderRadius: "3px",
-    },
-    ellipse: {
-        borderRadius: "50%",
-    },
-    diamond: {
-        width: "30px",
-        height: "30px",
-        transform: "rotate(45deg)",
-        borderRadius: "0",
-        padding: "0",
-    },
-    diamondLabel: {
-        transform: "rotate(-45deg)",
-        fontSize: "11px",
-    },
-};
-
-const DefaultComponents = [
-    { label: "Rectangle", shape: "rectangle" as NodeShape },
-    { label: "Ellipse", shape: "ellipse" as NodeShape },
-    { label: "Diamond", shape: "diamond" as NodeShape },
-];
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { nodeDefinitions } from "./nodes/NodeRegistry";
 
 interface ComponentDrawerProps {
     onAddNode: (label: string, shape: NodeShape) => void;
 }
 
-const getComponentPreview = (shape: NodeShape, label: string) => {
-    switch (shape) {
-        case "ellipse":
-            return (
-                <div
-                    style={{ ...nodeStyles.base, ...nodeStyles.ellipse }}
-                ></div>
-            );
-        case "diamond":
-            return (
-                <div
-                    style={{ ...nodeStyles.base, ...nodeStyles.diamond }}
-                ></div>
-            );
-        case "rectangle":
-        default:
-            return (
-                <div
-                    style={{ ...nodeStyles.base, ...nodeStyles.rectangle }}
-                ></div>
-            );
-    }
-};
-
 export function ComponentDrawer({ onAddNode }: ComponentDrawerProps) {
     return (
         <div className="w-60 border-r p-4 overflow-y-auto">
             <h2 className="text-lg font-semibold mb-4">Components</h2>
-            {DefaultComponents.map((comp) => (
-                <Button
-                    key={comp.label}
-                    onClick={() => onAddNode(comp.label, comp.shape)}
-                    className="w-full mb-2 h-16 flex flex-col items-center justify-center"
-                    variant="outline"
-                >
-                    {getComponentPreview(comp.shape, comp.label)}
-                </Button>
-            ))}
+            <div className="grid grid-cols-2 gap-2">
+                {nodeDefinitions.map((nodeDef) => {
+                    const NodeClass = nodeDef.nodeClass;
+
+                    return (
+                        <Tooltip key={nodeDef.label}>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    onClick={() =>
+                                        onAddNode(nodeDef.label, nodeDef.type)
+                                    }
+                                    className="w-full mb-1 h-14 flex flex-col items-center justify-center"
+                                    variant="outline"
+                                >
+                                    {NodeClass.getPreview(nodeDef.label)}
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent
+                                side="right"
+                                sideOffset={10}
+                                className="bg-white border border-gray-200 dark:border-gray-700 shadow-md rounded-md p-3 flex flex-col items-center text-black"
+                            >
+                                {NodeClass.getTooltipPreview()}
+                                <div className="text-sm font-medium mt-1 text-black">
+                                    {nodeDef.label}
+                                </div>
+                            </TooltipContent>
+                        </Tooltip>
+                    );
+                })}
+            </div>
         </div>
     );
 }
