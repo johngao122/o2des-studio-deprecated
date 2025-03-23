@@ -27,9 +27,14 @@ export class EllipseNodeClass extends BaseNode {
     };
 }
 
-export function EllipseNode({ data }: NodeProps<NodeData>) {
+export function EllipseNode({ data, selected }: NodeProps<NodeData>) {
+    const style = {
+        ...EllipseNodeClass.nodeStyles.base,
+        ...(selected ? EllipseNodeClass.nodeStyles.selected : {}),
+    };
+
     return (
-        <div style={EllipseNodeClass.nodeStyles.base}>
+        <div style={style} className={selected ? "selected" : ""}>
             <Handle type="target" position={Position.Top} />
             <div>{data.label}</div>
             <Handle type="source" position={Position.Bottom} />

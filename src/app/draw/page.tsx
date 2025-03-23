@@ -20,8 +20,10 @@ import ReactFlow, {
     NodeChange,
     EdgeChange,
     Connection,
+    SelectionMode,
 } from "reactflow";
 import "reactflow/dist/style.css";
+import "./reactflow.css";
 import { saveAs } from "file-saver";
 import { ComponentDrawer } from "@/components/ComponentDrawer";
 import { NodeShape } from "@/components/ComponentManager";
@@ -332,6 +334,17 @@ export default function Draw() {
         addNode(label, shape);
 
         setTimeout(() => {
+            const newlyAddedNode = nodes[nodes.length - 1];
+
+            if (reactFlowInstance.current && newlyAddedNode) {
+                reactFlowInstance.current.fitView({
+                    padding: 0.5,
+                    includeHiddenNodes: false,
+                    duration: 400,
+                    minZoom: 0.9,
+                    maxZoom: 1.5,
+                });
+            }
             saveStateToHistory();
         }, 50);
         setLastAction(`Added ${shape} node: ${label}`);
@@ -536,7 +549,8 @@ export default function Draw() {
                     change.type === "remove" ||
                     (change.type === "position" &&
                         change.position &&
-                        change.dragging === false)
+                        change.dragging === false) ||
+                    change.type === "select"
             );
 
             onNodesChange(changes);
@@ -544,11 +558,17 @@ export default function Draw() {
             if (significantChange) {
                 setTimeout(() => {
                     saveStateToHistory();
-                    console.log("Saved history after significant node change");
+                    if (changes.some((change) => change.type === "select")) {
+                        setLastAction("Selected node(s)");
+                    } else {
+                        console.log(
+                            "Saved history after significant node change"
+                        );
+                    }
                 }, 50);
             }
         },
-        [onNodesChange, saveStateToHistory]
+        [onNodesChange, saveStateToHistory, setLastAction]
     );
 
     const handleEdgesChange = useCallback(
@@ -615,6 +635,31 @@ export default function Draw() {
         };
     }, [nodes, edges, addToHistory, saveCurrentState]);
 
+    // Ensure initial diagram view is properly centered
+    useEffect(() => {
+        // Wait a bit for the component to mount properly
+        const timer = setTimeout(() => {
+            if (reactFlowInstance.current) {
+                reactFlowInstance.current.fitView({
+                    padding: 0.5,
+                    duration: 200,
+                    includeHiddenNodes: false,
+                });
+
+                // If there's only one node (initial state), center on it with a nice zoom
+                if (nodes.length === 1) {
+                    reactFlowInstance.current.setCenter(
+                        nodes[0].position.x,
+                        nodes[0].position.y,
+                        { zoom: 1.2, duration: 300 }
+                    );
+                }
+            }
+        }, 300);
+
+        return () => clearTimeout(timer);
+    }, [reactFlowInstance.current]); // Only run once after mounting
+
     return (
         <div
             className={`h-screen w-full flex flex-col ${
@@ -651,6 +696,11 @@ export default function Draw() {
                             snapGrid={[gridSize, gridSize]}
                             nodeTypes={nodeTypes}
                             nodesDraggable={true}
+                            selectionMode={SelectionMode.Partial}
+                            selectionOnDrag={true}
+                            multiSelectionKeyCode={["Control", "Meta"]}
+                            selectNodesOnDrag={true}
+                            panOnDrag={[1, 2]}
                             defaultEdgeOptions={{
                                 markerEnd: { type: MarkerType.Arrow },
                             }}

@@ -46,9 +46,14 @@ export class DiamondNodeClass extends BaseNode {
     };
 }
 
-export function DiamondNode({ data }: NodeProps<NodeData>) {
+export function DiamondNode({ data, selected }: NodeProps<NodeData>) {
+    const style = {
+        ...DiamondNodeClass.nodeStyles.base,
+        ...(selected ? DiamondNodeClass.nodeStyles.selected : {}),
+    };
+
     return (
-        <div style={DiamondNodeClass.nodeStyles.base}>
+        <div style={style} className={selected ? "selected" : ""}>
             <Handle type="target" position={Position.Top} />
             <div style={DiamondNodeClass.nodeStyles.label}>{data.label}</div>
             <Handle type="source" position={Position.Bottom} />
