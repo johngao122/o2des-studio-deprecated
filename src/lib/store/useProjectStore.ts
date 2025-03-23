@@ -1,3 +1,5 @@
+"use client";
+
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { Edge, Node } from "reactflow";
@@ -32,12 +34,22 @@ export const useProjectStore = create<ProjectState>()(
             // Auto-save feature
             savedNodes: [],
             savedEdges: [],
-            saveCurrentState: (nodes, edges) =>
-                set({
-                    savedNodes: nodes,
-                    savedEdges: edges,
-                    lastSaved: new Date().toISOString(),
-                }),
+            saveCurrentState: (nodes, edges) => {
+                // Only generate timestamps on the client side
+                if (typeof window !== "undefined") {
+                    set({
+                        savedNodes: nodes,
+                        savedEdges: edges,
+                        lastSaved: new Date().toISOString(),
+                    });
+                } else {
+                    // During SSR, don't set the timestamp
+                    set({
+                        savedNodes: nodes,
+                        savedEdges: edges,
+                    });
+                }
+            },
 
             // Last saved timestamp
             lastSaved: null,

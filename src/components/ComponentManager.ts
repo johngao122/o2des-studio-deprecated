@@ -1,10 +1,8 @@
 import { Node } from "reactflow";
+import { NodeType, getNodeTypeFromShape } from "./nodes/NodeRegistry";
+import { NodeData } from "./nodes";
 
-export type NodeShape = "rectangle" | "ellipse" | "diamond";
-
-interface NodeData {
-    label: string;
-}
+export type NodeShape = NodeType;
 
 export class ComponentManager {
     static createNode(
@@ -13,30 +11,14 @@ export class ComponentManager {
         position: { x: number; y: number },
         label: string
     ): Node<NodeData> {
-        const baseNode = {
+        const nodeType = getNodeTypeFromShape(shape);
+
+        return {
             id,
             position,
             data: { label },
             draggable: true,
+            type: nodeType,
         };
-
-        switch (shape) {
-            case "ellipse":
-                return {
-                    ...baseNode,
-                    type: "ellipseNode",
-                };
-            case "diamond":
-                return {
-                    ...baseNode,
-                    type: "diamondNode",
-                };
-            case "rectangle":
-            default:
-                return {
-                    ...baseNode,
-                    type: "rectangleNode",
-                };
-        }
     }
 }
