@@ -1,3 +1,5 @@
+"use client";
+
 import { create } from "zustand";
 import {
     Connection,
@@ -80,10 +82,17 @@ export const useFlowStore = create<RFState>((set, get) => ({
 
     addNode: (label: string, shape: NodeShape = "rectangle") => {
         const { nodes } = get();
+
+        // Use fixed positions instead of random ones to avoid hydration mismatch
+        // Calculate position based on current node count for deterministic placement
+        const nodeCount = nodes.length;
+        const xPos = 100 + (nodeCount % 3) * 150;
+        const yPos = 100 + Math.floor(nodeCount / 3) * 150;
+
         const newNode = ComponentManager.createNode(
             (nodes.length + 1).toString(),
             shape,
-            { x: Math.random() * 400, y: Math.random() * 400 },
+            { x: xPos, y: yPos },
             label
         );
         set({ nodes: [...nodes, newNode] });
