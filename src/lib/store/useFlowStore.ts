@@ -35,12 +35,7 @@ type RFState = {
 };
 
 const initialNodes = [
-    ComponentManager.createNode(
-        "1",
-        "rectangle",
-        { x: 250, y: 5 },
-        "Start Node"
-    ),
+    ComponentManager.createNode("1", "rectangle", { x: 0, y: 0 }, "Start Node"),
 ];
 
 const initialEdges: Edge[] = [];
@@ -83,11 +78,28 @@ export const useFlowStore = create<RFState>((set, get) => ({
     addNode: (label: string, shape: NodeShape = "rectangle") => {
         const { nodes } = get();
 
-        // Use fixed positions instead of random ones to avoid hydration mismatch
-        // Calculate position based on current node count for deterministic placement
-        const nodeCount = nodes.length;
-        const xPos = 100 + (nodeCount % 3) * 150;
-        const yPos = 100 + Math.floor(nodeCount / 3) * 150;
+        // Improved positioning logic for better distribution and viewport visibility
+        // Centering the initial layout around (0,0) coordinates which is typically the center of the viewport
+        const CENTER_X = 0;
+        const CENTER_Y = 0;
+        const COLUMN_WIDTH = 250;
+        const ROW_HEIGHT = 150;
+        const COLUMNS = 3;
+
+        // Calculate number of nodes per side (for balanced distribution)
+        const nodesPerSide = Math.ceil(Math.sqrt(nodes.length + 1));
+
+        // Calculate position in grid
+        const columnIndex = nodes.length % COLUMNS;
+        const rowIndex = Math.floor(nodes.length / COLUMNS);
+
+        // Calculate offset from center to create a balanced distribution
+        const xOffset = ((COLUMNS - 1) * COLUMN_WIDTH) / 2;
+        const yOffset = (Math.min(2, rowIndex) * ROW_HEIGHT) / 2;
+
+        // Calculate final position centered around viewport center
+        const xPos = CENTER_X - xOffset + columnIndex * COLUMN_WIDTH;
+        const yPos = CENTER_Y - yOffset + rowIndex * ROW_HEIGHT;
 
         const newNode = ComponentManager.createNode(
             (nodes.length + 1).toString(),

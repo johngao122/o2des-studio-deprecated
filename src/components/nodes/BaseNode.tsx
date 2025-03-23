@@ -11,6 +11,7 @@ export interface NodeStyles {
     base: React.CSSProperties;
     container?: React.CSSProperties;
     label?: React.CSSProperties;
+    selected?: React.CSSProperties;
 }
 
 export interface NodePreviewStyles {
@@ -33,6 +34,13 @@ export class BaseNode {
             color: "#222",
             textAlign: "center",
             backgroundColor: "white",
+        },
+        selected: {
+            boxShadow: "0 0 0 3px #6366f1",
+            border: "2px solid #6366f1",
+            backgroundColor: "rgba(99, 102, 241, 0.1)",
+            outline: "none",
+            transition: "all 0.2s ease",
         },
     };
 

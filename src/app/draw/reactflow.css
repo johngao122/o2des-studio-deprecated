@@ -1,0 +1,34 @@
+/* Custom ReactFlow styles */
+
+/* Selection pane styling */
+.react-flow__selection {
+    background-color: rgba(99, 102, 241, 0.15);
+    border: 1px solid #6366f1;
+    border-radius: 4px;
+}
+
+/* Selection box during drag */
+.react-flow__selection-rect {
+    background-color: rgba(99, 102, 241, 0.15);
+    border: 2px solid #6366f1;
+    border-radius: 4px;
+}
+
+/* Custom handle styling for selection mode */
+.react-flow__handle {
+    background-color: #6366f1;
+    width: 8px;
+    height: 8px;
+}
+
+/* Enhanced handle styling when node is selected */
+.selected .react-flow__handle {
+    background-color: #4f46e5;
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+/* Smooth transition for node selection */
+.react-flow__node {
+    transition: all 0.15s ease;
+}

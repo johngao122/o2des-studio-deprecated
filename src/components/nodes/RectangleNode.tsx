@@ -27,9 +27,14 @@ export class RectangleNodeClass extends BaseNode {
     };
 }
 
-export function RectangleNode({ data }: NodeProps<NodeData>) {
+export function RectangleNode({ data, selected }: NodeProps<NodeData>) {
+    const style = {
+        ...RectangleNodeClass.nodeStyles.base,
+        ...(selected ? RectangleNodeClass.nodeStyles.selected : {}),
+    };
+
     return (
-        <div style={RectangleNodeClass.nodeStyles.base}>
+        <div style={style} className={selected ? "selected" : ""}>
             <Handle type="target" position={Position.Top} />
             <div>{data.label}</div>
             <Handle type="source" position={Position.Bottom} />
