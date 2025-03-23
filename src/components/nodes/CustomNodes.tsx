@@ -25,11 +25,19 @@ const nodeStyles = {
         borderRadius: "50%",
     },
     diamond: {
-        height: "40px",
+        width: "106px",
+        height: "106px",
+        borderRadius: "0",
         transform: "rotate(45deg)",
+        border: "1px solid #1a192b",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0",
     },
     diamondLabel: {
         transform: "rotate(-45deg)",
+        width: "140px",
     },
 };
 

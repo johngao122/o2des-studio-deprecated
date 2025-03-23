@@ -24,10 +24,15 @@ const nodeStyles = {
         borderRadius: "50%",
     },
     diamond: {
+        width: "30px",
+        height: "30px",
         transform: "rotate(45deg)",
+        borderRadius: "0",
+        padding: "0",
     },
     diamondLabel: {
         transform: "rotate(-45deg)",
+        fontSize: "11px",
     },
 };
 
@@ -45,22 +50,22 @@ const getComponentPreview = (shape: NodeShape, label: string) => {
     switch (shape) {
         case "ellipse":
             return (
-                <div style={{ ...nodeStyles.base, ...nodeStyles.ellipse }}>
-                    {label}
-                </div>
+                <div
+                    style={{ ...nodeStyles.base, ...nodeStyles.ellipse }}
+                ></div>
             );
         case "diamond":
             return (
-                <div style={{ ...nodeStyles.base, ...nodeStyles.diamond }}>
-                    <span style={nodeStyles.diamondLabel}>{label}</span>
-                </div>
+                <div
+                    style={{ ...nodeStyles.base, ...nodeStyles.diamond }}
+                ></div>
             );
         case "rectangle":
         default:
             return (
-                <div style={{ ...nodeStyles.base, ...nodeStyles.rectangle }}>
-                    {label}
-                </div>
+                <div
+                    style={{ ...nodeStyles.base, ...nodeStyles.rectangle }}
+                ></div>
             );
     }
 };
