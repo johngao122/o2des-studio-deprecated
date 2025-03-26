@@ -78,26 +78,20 @@ export const useFlowStore = create<RFState>((set, get) => ({
     addNode: (label: string, shape: NodeShape = "rectangle") => {
         const { nodes } = get();
 
-        // Improved positioning logic for better distribution and viewport visibility
-        // Centering the initial layout around (0,0) coordinates which is typically the center of the viewport
         const CENTER_X = 0;
         const CENTER_Y = 0;
         const COLUMN_WIDTH = 250;
         const ROW_HEIGHT = 150;
         const COLUMNS = 3;
 
-        // Calculate number of nodes per side (for balanced distribution)
         const nodesPerSide = Math.ceil(Math.sqrt(nodes.length + 1));
 
-        // Calculate position in grid
         const columnIndex = nodes.length % COLUMNS;
         const rowIndex = Math.floor(nodes.length / COLUMNS);
 
-        // Calculate offset from center to create a balanced distribution
         const xOffset = ((COLUMNS - 1) * COLUMN_WIDTH) / 2;
         const yOffset = (Math.min(2, rowIndex) * ROW_HEIGHT) / 2;
 
-        // Calculate final position centered around viewport center
         const xPos = CENTER_X - xOffset + columnIndex * COLUMN_WIDTH;
         const yPos = CENTER_Y - yOffset + rowIndex * ROW_HEIGHT;
 
@@ -112,9 +106,9 @@ export const useFlowStore = create<RFState>((set, get) => ({
 
     deleteNode: (nodeId: string) => {
         const { nodes, edges } = get();
-        // Remove the node
+
         const newNodes = nodes.filter((node) => node.id !== nodeId);
-        // Remove any edges connected to this node
+
         const newEdges = edges.filter(
             (edge) => edge.source !== nodeId && edge.target !== nodeId
         );

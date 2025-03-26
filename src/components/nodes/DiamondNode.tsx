@@ -3,6 +3,7 @@
 import React from "react";
 import { Handle, Position, NodeProps } from "reactflow";
 import { BaseNode, NodeData } from "./BaseNode";
+import { useNodeStyleStore } from "@/lib/store/useNodeStyleStore";
 
 export class DiamondNodeClass extends BaseNode {
     static nodeStyles = {
@@ -13,7 +14,9 @@ export class DiamondNodeClass extends BaseNode {
             height: "106px",
             borderRadius: "0",
             transform: "rotate(45deg)",
-            border: "1px solid #1a192b",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "#1a192b",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -46,16 +49,39 @@ export class DiamondNodeClass extends BaseNode {
     };
 }
 
-export function DiamondNode({ data, selected }: NodeProps<NodeData>) {
+export function DiamondNode({ data, selected, id }: NodeProps<NodeData>) {
+    const nodeStyleStore = useNodeStyleStore();
+    const nodeStyle = nodeStyleStore.getNodeStyle(id);
+
     const style = {
         ...DiamondNodeClass.nodeStyles.base,
         ...(selected ? DiamondNodeClass.nodeStyles.selected : {}),
+
+        ...(nodeStyle
+            ? {
+                  backgroundColor: nodeStyle.backgroundColor,
+                  borderColor: nodeStyle.borderColor,
+                  borderWidth: `${nodeStyle.borderWidth}px`,
+                  borderStyle: nodeStyle.borderStyle,
+                  opacity: nodeStyle.opacity,
+              }
+            : {}),
+    };
+
+    const labelStyle = {
+        ...DiamondNodeClass.nodeStyles.label,
+        ...(nodeStyle
+            ? {
+                  color: nodeStyle.textColor,
+                  fontSize: `${nodeStyle.fontSize}px`,
+              }
+            : {}),
     };
 
     return (
         <div style={style} className={selected ? "selected" : ""}>
             <Handle type="target" position={Position.Top} />
-            <div style={DiamondNodeClass.nodeStyles.label}>{data.label}</div>
+            <div style={labelStyle}>{data.label}</div>
             <Handle type="source" position={Position.Bottom} />
         </div>
     );

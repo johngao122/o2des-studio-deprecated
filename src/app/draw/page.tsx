@@ -21,6 +21,7 @@ import ReactFlow, {
     EdgeChange,
     Connection,
     SelectionMode,
+    ReactFlowProvider,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import "./reactflow.css";
@@ -38,6 +39,7 @@ import { useHistoryStore } from "@/lib/store/useHistoryStore";
 import { KeyboardShortcuts } from "@/lib/constants/shortcuts";
 import { useKeyboardShortcuts } from "@/lib/hooks/useKeyboardShortcuts";
 import { ShortcutsHelp } from "@/components/ShortcutsHelp";
+import { PropertiesBar } from "@/components/PropertiesBar";
 
 const debounce = (func: Function, wait: number) => {
     let timeout: NodeJS.Timeout;
@@ -104,6 +106,8 @@ export default function Draw() {
     const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
     const isInitialSetupComplete = useRef<boolean>(false);
     const hasInitialized = useRef<boolean>(false);
+
+    const [selectedNodes, setSelectedNodes] = useState<Node[]>([]);
 
     useEffect(() => {
         if (hasInitialized.current) {
@@ -635,9 +639,7 @@ export default function Draw() {
         };
     }, [nodes, edges, addToHistory, saveCurrentState]);
 
-    // Ensure initial diagram view is properly centered
     useEffect(() => {
-        // Wait a bit for the component to mount properly
         const timer = setTimeout(() => {
             if (reactFlowInstance.current) {
                 reactFlowInstance.current.fitView({
@@ -646,7 +648,6 @@ export default function Draw() {
                     includeHiddenNodes: false,
                 });
 
-                // If there's only one node (initial state), center on it with a nice zoom
                 if (nodes.length === 1) {
                     reactFlowInstance.current.setCenter(
                         nodes[0].position.x,
@@ -658,7 +659,7 @@ export default function Draw() {
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [reactFlowInstance.current]); // Only run once after mounting
+    }, [reactFlowInstance.current]);
 
     return (
         <div
@@ -668,86 +669,106 @@ export default function Draw() {
                     : "bg-white text-black"
             }`}
         >
-            <Toaster richColors position="top-center" />
-            <Toolbar
-                onSave={handleSave}
-                onLoad={handleLoad}
-                onZoomIn={handleZoomIn}
-                onZoomOut={handleZoomOut}
-                onFitView={handleFitView}
-                onToggleDarkMode={toggleDarkMode}
-                isDarkMode={isDarkMode}
-                onUndo={canUndo ? handleUndo : undefined}
-                onRedo={canRedo ? handleRedo : undefined}
-                onShowShortcuts={() => setShortcutsHelpOpen(true)}
-                lastAction={lastAction}
-            />
-            <div className="flex-1 flex">
-                {isSidebarOpen && <ComponentDrawer onAddNode={handleAddNode} />}
-                <div className="flex-1 flex flex-col">
-                    <div className="flex-1">
-                        <ReactFlow
-                            nodes={nodes}
-                            edges={edges}
-                            onNodesChange={handleNodesChange}
-                            onEdgesChange={handleEdgesChange}
-                            onConnect={handleConnect}
-                            snapToGrid={snapToGrid}
-                            snapGrid={[gridSize, gridSize]}
-                            nodeTypes={nodeTypes}
-                            nodesDraggable={true}
-                            selectionMode={SelectionMode.Partial}
-                            selectionOnDrag={true}
-                            multiSelectionKeyCode={["Control", "Meta"]}
-                            selectNodesOnDrag={true}
-                            panOnDrag={[1, 2]}
-                            defaultEdgeOptions={{
-                                markerEnd: { type: MarkerType.Arrow },
-                            }}
-                            fitView
-                            fitViewOptions={{ padding: 0.2 }}
-                            onInit={(instance) => {
-                                reactFlowInstance.current = instance;
-                            }}
-                            deleteKeyCode={["Backspace", "Delete"]}
-                            onNodeDoubleClick={(_, node) => {
-                                const newLabel = prompt(
-                                    "Enter new name for node:",
-                                    node.data?.label
-                                );
-                                if (newLabel) {
-                                    updateNodeData(node.id, {
-                                        label: newLabel,
-                                    });
-                                    setTimeout(() => {
-                                        saveStateToHistory();
-                                        setLastAction(
-                                            `Renamed node to: ${newLabel}`
-                                        );
-                                    }, 50);
-                                }
-                            }}
-                        >
-                            {miniMapVisible && <MiniMap />}
-                            {controlsVisible && <Controls />}
-                            <Background
-                                variant={BackgroundVariant.Dots}
-                                gap={12}
-                                size={1}
-                                className={
-                                    isDarkMode ? "bg-gray-800" : "bg-gray-100"
-                                }
-                            />
-                        </ReactFlow>
+            <ReactFlowProvider>
+                <Toaster richColors position="top-center" />
+                <div className="flex flex-1 overflow-hidden">
+                    <ComponentDrawer onAddNode={handleAddNode} />
+                    <div className="flex-1 flex flex-col relative">
+                        <Toolbar
+                            onSave={handleSave}
+                            onLoad={handleLoad}
+                            onZoomIn={handleZoomIn}
+                            onZoomOut={handleZoomOut}
+                            onFitView={handleFitView}
+                            onToggleDarkMode={toggleDarkMode}
+                            isDarkMode={isDarkMode}
+                            onUndo={canUndo ? handleUndo : undefined}
+                            onRedo={canRedo ? handleRedo : undefined}
+                            onShowShortcuts={() => setShortcutsHelpOpen(true)}
+                            lastAction={lastAction}
+                        />
+                        <div className="flex-1 h-full relative">
+                            <ReactFlow
+                                nodes={nodes}
+                                edges={edges}
+                                onNodesChange={handleNodesChange}
+                                onEdgesChange={handleEdgesChange}
+                                onConnect={handleConnect}
+                                snapToGrid={snapToGrid}
+                                snapGrid={[gridSize, gridSize]}
+                                nodeTypes={nodeTypes}
+                                nodesDraggable={true}
+                                selectionMode={SelectionMode.Partial}
+                                selectionOnDrag={true}
+                                multiSelectionKeyCode={["Control", "Meta"]}
+                                selectNodesOnDrag={true}
+                                onSelectionChange={(params) => {
+                                    console.log(
+                                        "Selection changed from ReactFlow:",
+                                        params
+                                    );
+                                    console.log(
+                                        "Selected nodes:",
+                                        params.nodes.length
+                                    );
+
+                                    setSelectedNodes(params.nodes);
+                                }}
+                                panOnDrag={[2]}
+                                defaultEdgeOptions={{
+                                    markerEnd: { type: MarkerType.Arrow },
+                                }}
+                                fitView
+                                fitViewOptions={{ padding: 0.2 }}
+                                onInit={(instance) => {
+                                    reactFlowInstance.current = instance;
+                                }}
+                                deleteKeyCode={["Backspace", "Delete"]}
+                                className="w-full h-full"
+                                onNodeDoubleClick={(_, node) => {
+                                    const newLabel = prompt(
+                                        "Enter new name for node:",
+                                        node.data?.label
+                                    );
+                                    if (newLabel) {
+                                        updateNodeData(node.id, {
+                                            label: newLabel,
+                                        });
+                                        setTimeout(() => {
+                                            saveStateToHistory();
+                                            setLastAction(
+                                                `Renamed node to: ${newLabel}`
+                                            );
+                                        }, 50);
+                                    }
+                                }}
+                            >
+                                {miniMapVisible && <MiniMap />}
+                                {controlsVisible && <Controls />}
+                                <Background
+                                    variant={BackgroundVariant.Dots}
+                                    gap={12}
+                                    size={1}
+                                    className={
+                                        isDarkMode
+                                            ? "bg-gray-800"
+                                            : "bg-gray-100"
+                                    }
+                                />
+                            </ReactFlow>
+
+                            {/* Properties bar on the right side */}
+                            <PropertiesBar selectedNodes={selectedNodes} />
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Shortcuts help dialog */}
-            <ShortcutsHelp
-                isOpen={isShortcutsHelpOpen}
-                onClose={() => setShortcutsHelpOpen(false)}
-            />
+                {/* Shortcuts help dialog */}
+                <ShortcutsHelp
+                    isOpen={isShortcutsHelpOpen}
+                    onClose={() => setShortcutsHelpOpen(false)}
+                />
+            </ReactFlowProvider>
         </div>
     );
 }

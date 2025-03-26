@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Handle, Position, NodeProps } from "reactflow";
+import { useNodeStyleStore, NodeStyle } from "@/lib/store/useNodeStyleStore";
 
 export interface NodeData {
     label: string;
+    style?: NodeStyle;
 }
 
 export interface NodeStyles {
@@ -28,7 +30,9 @@ export class BaseNode {
     static nodeStyles: NodeStyles = {
         base: {
             padding: "10px",
-            border: "1px solid #1a192b",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "#1a192b",
             width: "150px",
             fontSize: "12px",
             color: "#222",
@@ -37,7 +41,9 @@ export class BaseNode {
         },
         selected: {
             boxShadow: "0 0 0 3px #6366f1",
-            border: "2px solid #6366f1",
+            borderWidth: "2px",
+            borderStyle: "solid",
+            borderColor: "#6366f1",
             backgroundColor: "rgba(99, 102, 241, 0.1)",
             outline: "none",
             transition: "all 0.2s ease",
@@ -47,7 +53,9 @@ export class BaseNode {
     static previewStyles: NodePreviewStyles = {
         base: {
             padding: "5px",
-            border: "1px solid #1a192b",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "#1a192b",
             width: "70%",
             height: "30px",
             fontSize: "12px",
@@ -61,7 +69,9 @@ export class BaseNode {
         },
         tooltip: {
             padding: "10px",
-            border: "1px solid #1a192b",
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: "#1a192b",
             width: "60px",
             height: "60px",
             fontSize: "12px",
@@ -74,16 +84,6 @@ export class BaseNode {
             justifyContent: "center",
         },
     };
-
-    static getNodeComponent(data: NodeData): React.ReactElement {
-        return (
-            <div style={this.nodeStyles.base}>
-                <Handle type="target" position={Position.Top} />
-                <div>{data.label}</div>
-                <Handle type="source" position={Position.Bottom} />
-            </div>
-        );
-    }
 
     static getPreview(label: string): React.ReactElement {
         return <div style={this.previewStyles.base}></div>;
