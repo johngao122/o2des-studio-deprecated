@@ -107,6 +107,9 @@ export default function Draw() {
     const isInitialSetupComplete = useRef<boolean>(false);
     const hasInitialized = useRef<boolean>(false);
 
+    // Track the selected nodes at the parent level
+    const [selectedNodes, setSelectedNodes] = useState<Node[]>([]);
+
     useEffect(() => {
         if (hasInitialized.current) {
             return;
@@ -703,7 +706,19 @@ export default function Draw() {
                                 selectionOnDrag={true}
                                 multiSelectionKeyCode={["Control", "Meta"]}
                                 selectNodesOnDrag={true}
-                                panOnDrag={[1, 2]}
+                                onSelectionChange={(params) => {
+                                    console.log(
+                                        "Selection changed from ReactFlow:",
+                                        params
+                                    );
+                                    console.log(
+                                        "Selected nodes:",
+                                        params.nodes.length
+                                    );
+                                    // Update the selected nodes state
+                                    setSelectedNodes(params.nodes);
+                                }}
+                                panOnDrag={[1]}
                                 defaultEdgeOptions={{
                                     markerEnd: { type: MarkerType.Arrow },
                                 }}
@@ -746,7 +761,7 @@ export default function Draw() {
                             </ReactFlow>
 
                             {/* Properties bar on the right side */}
-                            <PropertiesBar />
+                            <PropertiesBar selectedNodes={selectedNodes} />
                         </div>
                     </div>
                 </div>
