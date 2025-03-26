@@ -50,15 +50,13 @@ export class DiamondNodeClass extends BaseNode {
 }
 
 export function DiamondNode({ data, selected, id }: NodeProps<NodeData>) {
-    // Get the node style from the store
     const nodeStyleStore = useNodeStyleStore();
     const nodeStyle = nodeStyleStore.getNodeStyle(id);
 
-    // Create base style with shape-specific properties
     const style = {
         ...DiamondNodeClass.nodeStyles.base,
         ...(selected ? DiamondNodeClass.nodeStyles.selected : {}),
-        // Apply custom styles if available
+
         ...(nodeStyle
             ? {
                   backgroundColor: nodeStyle.backgroundColor,
@@ -70,7 +68,6 @@ export function DiamondNode({ data, selected, id }: NodeProps<NodeData>) {
             : {}),
     };
 
-    // The label style needs text color and font size
     const labelStyle = {
         ...DiamondNodeClass.nodeStyles.label,
         ...(nodeStyle

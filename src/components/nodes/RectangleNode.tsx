@@ -29,15 +29,13 @@ export class RectangleNodeClass extends BaseNode {
 }
 
 export function RectangleNode({ data, selected, id }: NodeProps<NodeData>) {
-    // Get the node style from the store
     const nodeStyleStore = useNodeStyleStore();
     const nodeStyle = nodeStyleStore.getNodeStyle(id);
 
-    // Create base style with shape-specific properties
     const style = {
         ...RectangleNodeClass.nodeStyles.base,
         ...(selected ? RectangleNodeClass.nodeStyles.selected : {}),
-        // Apply custom styles if available
+
         ...(nodeStyle
             ? {
                   backgroundColor: nodeStyle.backgroundColor,

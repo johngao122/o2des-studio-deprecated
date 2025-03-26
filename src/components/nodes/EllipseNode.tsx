@@ -29,15 +29,13 @@ export class EllipseNodeClass extends BaseNode {
 }
 
 export function EllipseNode({ data, selected, id }: NodeProps<NodeData>) {
-    // Get the node style from the store
     const nodeStyleStore = useNodeStyleStore();
     const nodeStyle = nodeStyleStore.getNodeStyle(id);
 
-    // Create base style with shape-specific properties
     const style = {
         ...EllipseNodeClass.nodeStyles.base,
         ...(selected ? EllipseNodeClass.nodeStyles.selected : {}),
-        // Apply custom styles if available
+
         ...(nodeStyle
             ? {
                   backgroundColor: nodeStyle.backgroundColor,

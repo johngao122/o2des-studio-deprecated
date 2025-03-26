@@ -35,13 +35,11 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
     const [nodeId, setNodeId] = useState("");
     const [multiSelection, setMultiSelection] = useState(false);
 
-    // For multi-selection styles
     const [commonStyle, setCommonStyle] = useState<Partial<NodeStyle> | null>(
         null
     );
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-    // Update our state when the selectedNodes prop changes from the parent
     useEffect(() => {
         console.log(
             "Selected nodes updated in PropertiesBar:",
@@ -57,7 +55,6 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
             setMultiSelection(false);
             setSelectedIds([node.id]);
         } else if (selectedNodes.length > 1) {
-            // Handle multi-selection
             console.log(
                 "Multi-selection detected:",
                 selectedNodes.length,
@@ -67,11 +64,9 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
             setSelectedNodeId(null);
             setMultiSelection(true);
 
-            // Get all selected node IDs
             const ids = selectedNodes.map((node) => node.id);
             setSelectedIds(ids);
         } else {
-            // No selection
             setSelectedNode(null);
             setSelectedNodeId(null);
             setMultiSelection(false);
@@ -79,19 +74,15 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         }
     }, [selectedNodes, setSelectedNodeId]);
 
-    // Handle multi-selection style determination
     useEffect(() => {
         if (multiSelection && selectedNodes.length > 1) {
-            // Get styles for all selected nodes
             const nodeStyles = selectedNodes.map((node) =>
                 getNodeStyle(node.id)
             );
 
-            // Find common properties with the same values
             const firstStyle = nodeStyles[0];
             const common: Partial<NodeStyle> = {};
 
-            // Check each property to see if it's the same across all nodes
             Object.keys(firstStyle).forEach((key) => {
                 const property = key as keyof NodeStyle;
                 const firstValue = firstStyle[property];
@@ -100,14 +91,12 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
                 );
 
                 if (allMatch) {
-                    // Type assertion to help TypeScript understand this is valid
                     common[property] = firstValue as any;
                 }
             });
 
             setCommonStyle(common);
 
-            // For multi-selection, set a descriptive label
             setNodeLabel(`${selectedNodes.length} nodes selected`);
             setNodeId("multiple");
         } else {
@@ -119,7 +108,6 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         setNodeLabel(e.target.value);
 
         if (multiSelection) {
-            // Update all selected nodes
             const updatedNodes = getNodes().map((node) => {
                 if (selectedIds.includes(node.id)) {
                     return {
@@ -134,7 +122,6 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
             });
             setNodes(updatedNodes);
         } else if (selectedNode) {
-            // Update single node
             const updatedNodes = getNodes().map((n) => {
                 if (n.id === selectedNode.id) {
                     return {
@@ -153,12 +140,10 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
 
     const handleStyleChange = (property: keyof NodeStyle, value: any) => {
         if (multiSelection) {
-            // Update all selected nodes
             selectedIds.forEach((id) => {
                 updateNodeStyle(id, { [property]: value });
             });
 
-            // Update common style
             setCommonStyle((prev) =>
                 prev ? { ...prev, [property]: value } : null
             );
@@ -169,7 +154,6 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
 
     const handleResetStyle = () => {
         if (multiSelection) {
-            // Reset all selected nodes
             selectedIds.forEach((id) => {
                 resetNodeStyle(id);
             });
@@ -178,14 +162,12 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         }
     };
 
-    // Get style for selected node or common style for multiple nodes
     const nodeStyle = multiSelection
         ? commonStyle
         : selectedNodeId
         ? getNodeStyle(selectedNodeId)
         : null;
 
-    // Only render the panel if any nodes are selected
     if (selectedNodes.length === 0) {
         return null;
     }

@@ -107,7 +107,6 @@ export default function Draw() {
     const isInitialSetupComplete = useRef<boolean>(false);
     const hasInitialized = useRef<boolean>(false);
 
-    // Track the selected nodes at the parent level
     const [selectedNodes, setSelectedNodes] = useState<Node[]>([]);
 
     useEffect(() => {
@@ -640,9 +639,7 @@ export default function Draw() {
         };
     }, [nodes, edges, addToHistory, saveCurrentState]);
 
-    // Ensure initial diagram view is properly centered
     useEffect(() => {
-        // Wait a bit for the component to mount properly
         const timer = setTimeout(() => {
             if (reactFlowInstance.current) {
                 reactFlowInstance.current.fitView({
@@ -651,7 +648,6 @@ export default function Draw() {
                     includeHiddenNodes: false,
                 });
 
-                // If there's only one node (initial state), center on it with a nice zoom
                 if (nodes.length === 1) {
                     reactFlowInstance.current.setCenter(
                         nodes[0].position.x,
@@ -663,7 +659,7 @@ export default function Draw() {
         }, 300);
 
         return () => clearTimeout(timer);
-    }, [reactFlowInstance.current]); // Only run once after mounting
+    }, [reactFlowInstance.current]);
 
     return (
         <div
@@ -715,7 +711,7 @@ export default function Draw() {
                                         "Selected nodes:",
                                         params.nodes.length
                                     );
-                                    // Update the selected nodes state
+
                                     setSelectedNodes(params.nodes);
                                 }}
                                 panOnDrag={[2]}

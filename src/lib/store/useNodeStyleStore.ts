@@ -27,16 +27,12 @@ export const defaultNodeStyle: NodeStyle = {
 };
 
 type NodeStyleState = {
-    // Stores styles for each node by ID
     nodeStyles: Record<string, NodeStyle>;
 
-    // Current selected node
     selectedNodeId: string | null;
 
-    // Current default style for new nodes
     defaultStyle: NodeStyle;
 
-    // Actions
     setSelectedNodeId: (id: string | null) => void;
     updateNodeStyle: (nodeId: string, style: Partial<NodeStyle>) => void;
     updateDefaultStyle: (style: Partial<NodeStyle>) => void;
