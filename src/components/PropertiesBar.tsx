@@ -191,7 +191,7 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
     }
 
     return (
-        <div className="w-72 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 h-screen overflow-y-auto p-4 animate-in slide-in-from-right duration-300">
+        <div className="w-72 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 h-screen overflow-y-auto p-4 animate-in slide-in-from-right duration-300 absolute right-0 top-0 z-10">
             <h2 className="text-lg font-semibold mb-4">
                 {multiSelection ? "Multiple Selection" : "Properties"}
             </h2>

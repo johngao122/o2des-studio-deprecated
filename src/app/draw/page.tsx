@@ -691,7 +691,7 @@ export default function Draw() {
                             onShowShortcuts={() => setShortcutsHelpOpen(true)}
                             lastAction={lastAction}
                         />
-                        <div className="flex-1 h-full relative flex">
+                        <div className="flex-1 h-full relative">
                             <ReactFlow
                                 nodes={nodes}
                                 edges={edges}
@@ -718,7 +718,7 @@ export default function Draw() {
                                     // Update the selected nodes state
                                     setSelectedNodes(params.nodes);
                                 }}
-                                panOnDrag={[1]}
+                                panOnDrag={[2]}
                                 defaultEdgeOptions={{
                                     markerEnd: { type: MarkerType.Arrow },
                                 }}
@@ -728,6 +728,7 @@ export default function Draw() {
                                     reactFlowInstance.current = instance;
                                 }}
                                 deleteKeyCode={["Backspace", "Delete"]}
+                                className="w-full h-full"
                                 onNodeDoubleClick={(_, node) => {
                                     const newLabel = prompt(
                                         "Enter new name for node:",
