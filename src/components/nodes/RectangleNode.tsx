@@ -52,7 +52,10 @@ export function RectangleNode({ data, selected, id }: NodeProps<NodeData>) {
     return (
         <div style={style}>
             <Handle type="target" position={Position.Top} />
-            <div>{data.label}</div>
+            <div className="flex flex-col gap-2">
+                <div>{data.label}</div>
+                {data.content}
+            </div>
             <Handle type="source" position={Position.Bottom} />
         </div>
     );

@@ -7,6 +7,7 @@ import { useNodeStyleStore, NodeStyle } from "@/lib/store/useNodeStyleStore";
 export interface NodeData {
     label: string;
     style?: NodeStyle;
+    content?: React.ReactNode;
 }
 
 export interface NodeStyles {

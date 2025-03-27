@@ -725,23 +725,6 @@ export default function Draw() {
                                 }}
                                 deleteKeyCode={["Backspace", "Delete"]}
                                 className="w-full h-full"
-                                onNodeDoubleClick={(_, node) => {
-                                    const newLabel = prompt(
-                                        "Enter new name for node:",
-                                        node.data?.label
-                                    );
-                                    if (newLabel) {
-                                        updateNodeData(node.id, {
-                                            label: newLabel,
-                                        });
-                                        setTimeout(() => {
-                                            saveStateToHistory();
-                                            setLastAction(
-                                                `Renamed node to: ${newLabel}`
-                                            );
-                                        }, 50);
-                                    }
-                                }}
                             >
                                 {miniMapVisible && <MiniMap />}
                                 {controlsVisible && <Controls />}

@@ -15,13 +15,20 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { TableNodeData } from "./nodes/TableNode";
+import { NodeData } from "./nodes/BaseNode";
+import { useTableStore } from "@/lib/store/useTableStore";
+
+type FlowNode = Node<NodeData | TableNodeData>;
 
 interface PropertiesBarProps {
-    selectedNodes: Node[];
+    selectedNodes: FlowNode[];
 }
 
 export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
-    const { getNodes, setNodes } = useReactFlow();
+    const { getNode, setNodes, getNodes } = useReactFlow<
+        NodeData | TableNodeData
+    >();
     const {
         selectedNodeId,
         setSelectedNodeId,
@@ -39,6 +46,9 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         null
     );
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+    const [rows, setRows] = useState(3);
+    const [columns, setColumns] = useState(3);
 
     useEffect(() => {
         console.log(
@@ -104,6 +114,17 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         }
     }, [multiSelection, selectedNodes, getNodeStyle]);
 
+    useEffect(() => {
+        if (
+            selectedNodes.length === 1 &&
+            selectedNodes[0].type === "tableNode"
+        ) {
+            const tableData = selectedNodes[0].data as TableNodeData;
+            setRows(tableData.rows);
+            setColumns(tableData.columns);
+        }
+    }, [selectedNodes]);
+
     const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNodeLabel(e.target.value);
 
@@ -168,6 +189,100 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         ? getNodeStyle(selectedNodeId)
         : null;
 
+    const handleRowsChange = (value: number) => {
+        if (!selectedNodes.length) return;
+        const node = getNode(selectedNodes[0].id);
+        if (!node || node.type !== "tableNode") return;
+
+        const newRows = Math.max(1, Math.min(30, value));
+        setRows(newRows);
+
+        const tableData = node.data as TableNodeData;
+
+        let newCells;
+        if (newRows > tableData.cells.length) {
+            const additionalRows = Array(newRows - tableData.cells.length)
+                .fill(null)
+                .map(() => Array(tableData.columns).fill(""));
+            newCells = [...tableData.cells, ...additionalRows];
+        } else {
+            newCells = tableData.cells.slice(0, newRows);
+        }
+
+        useTableStore.getState().updateTableData(node.id, {
+            rows: newRows,
+            cells: newCells,
+        });
+
+        setNodes(
+            getNodes().map((n: FlowNode) =>
+                n.id === node.id
+                    ? {
+                          ...n,
+                          data: {
+                              ...n.data,
+                              rows: newRows,
+                              cells: newCells,
+                          },
+                      }
+                    : n
+            )
+        );
+    };
+
+    const handleColumnsChange = (value: number) => {
+        if (!selectedNodes.length) return;
+        const node = getNode(selectedNodes[0].id);
+        if (!node || node.type !== "tableNode") return;
+
+        const newColumns = Math.max(1, Math.min(30, value));
+        setColumns(newColumns);
+
+        const tableData = node.data as TableNodeData;
+
+        let newHeaders;
+        if (newColumns > tableData.headers.length) {
+            const additionalHeaders = Array(
+                newColumns - tableData.headers.length
+            )
+                .fill("")
+                .map((_, i) => `Header ${tableData.headers.length + i + 1}`);
+            newHeaders = [...tableData.headers, ...additionalHeaders];
+        } else {
+            newHeaders = tableData.headers.slice(0, newColumns);
+        }
+
+        const newCells = tableData.cells.map((row) => {
+            if (newColumns > row.length) {
+                return [...row, ...Array(newColumns - row.length).fill("")];
+            } else {
+                return row.slice(0, newColumns);
+            }
+        });
+
+        useTableStore.getState().updateTableData(node.id, {
+            columns: newColumns,
+            headers: newHeaders,
+            cells: newCells,
+        });
+
+        setNodes(
+            getNodes().map((n: FlowNode) =>
+                n.id === node.id
+                    ? {
+                          ...n,
+                          data: {
+                              ...n.data,
+                              columns: newColumns,
+                              headers: newHeaders,
+                              cells: newCells,
+                          },
+                      }
+                    : n
+            )
+        );
+    };
+
     if (selectedNodes.length === 0) {
         return null;
     }
@@ -222,6 +337,44 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
                             className="bg-gray-100 dark:bg-gray-700"
                         />
                     </div>
+
+                    {selectedNodes.length === 1 &&
+                        selectedNodes[0].type === "tableNode" && (
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <Label>Rows</Label>
+                                    <Input
+                                        type="number"
+                                        min={1}
+                                        max={30}
+                                        value={rows}
+                                        onChange={(e) => {
+                                            const value =
+                                                e.target.value === ""
+                                                    ? 1
+                                                    : parseInt(e.target.value);
+                                            handleRowsChange(value);
+                                        }}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label>Columns</Label>
+                                    <Input
+                                        type="number"
+                                        min={1}
+                                        max={30}
+                                        value={columns}
+                                        onChange={(e) => {
+                                            const value =
+                                                e.target.value === ""
+                                                    ? 1
+                                                    : parseInt(e.target.value);
+                                            handleColumnsChange(value);
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        )}
                 </TabsContent>
 
                 <TabsContent value="style" className="space-y-4 mt-4">
