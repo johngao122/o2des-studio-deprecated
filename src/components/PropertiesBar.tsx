@@ -194,22 +194,18 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         const node = getNode(selectedNodes[0].id);
         if (!node || node.type !== "tableNode") return;
 
-        // Ensure value is within bounds
         const newRows = Math.max(1, Math.min(30, value));
-        setRows(newRows); // Update local state immediately
+        setRows(newRows);
 
         const tableData = node.data as TableNodeData;
 
-        // Preserve existing content when changing rows
         let newCells;
         if (newRows > tableData.cells.length) {
-            // Adding rows - keep existing content and add empty rows
             const additionalRows = Array(newRows - tableData.cells.length)
                 .fill(null)
                 .map(() => Array(tableData.columns).fill(""));
             newCells = [...tableData.cells, ...additionalRows];
         } else {
-            // Removing rows - keep only the first newRows rows
             newCells = tableData.cells.slice(0, newRows);
         }
 
@@ -239,16 +235,13 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         const node = getNode(selectedNodes[0].id);
         if (!node || node.type !== "tableNode") return;
 
-        // Ensure value is within bounds
         const newColumns = Math.max(1, Math.min(30, value));
-        setColumns(newColumns); // Update local state immediately
+        setColumns(newColumns);
 
         const tableData = node.data as TableNodeData;
 
-        // Preserve existing headers when changing columns
         let newHeaders;
         if (newColumns > tableData.headers.length) {
-            // Adding columns - keep existing headers and add new ones
             const additionalHeaders = Array(
                 newColumns - tableData.headers.length
             )
@@ -256,17 +249,13 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
                 .map((_, i) => `Header ${tableData.headers.length + i + 1}`);
             newHeaders = [...tableData.headers, ...additionalHeaders];
         } else {
-            // Removing columns - keep only the first newColumns headers
             newHeaders = tableData.headers.slice(0, newColumns);
         }
 
-        // Preserve existing cell content when changing columns
         const newCells = tableData.cells.map((row) => {
             if (newColumns > row.length) {
-                // Adding columns - keep existing content and add empty cells
                 return [...row, ...Array(newColumns - row.length).fill("")];
             } else {
-                // Removing columns - keep only the first newColumns cells
                 return row.slice(0, newColumns);
             }
         });

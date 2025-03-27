@@ -141,7 +141,6 @@ export function TableNode({ data, selected, id }: NodeProps<TableNodeData>) {
     const [editValue, setEditValue] = useState("");
 
     useEffect(() => {
-        // Initialize table data when the component mounts
         initializeTable(id, {
             rows: data.rows,
             columns: data.columns,
@@ -158,7 +157,6 @@ export function TableNode({ data, selected, id }: NodeProps<TableNodeData>) {
     ]);
 
     useEffect(() => {
-        // Set this table as active when selected
         if (selected) {
             setActiveTable(id);
         }
