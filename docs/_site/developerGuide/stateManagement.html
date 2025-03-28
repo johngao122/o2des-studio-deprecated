@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 4.1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>O2DES Studio - State Management</title>
+    <link rel="stylesheet" href="/markbind/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/markbind/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/markbind/glyphicons/css/bootstrap-glyphicons.min.css">
+    <link rel="stylesheet" href="/markbind/css/octicons.css">
+    <link rel="stylesheet" href="/markbind/material-icons/material-icons.css">
+    <link rel="stylesheet" href="/markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="/markbind/css/markbind.min.css"><script src="/markbind/js/polyfill.min.js"></script>
+    <script src="/markbind/js/vue.min.js"></script>
+    <script src="/markbind/js/markbind.min.js"></script>
+    <script src="stateManagement.page-vue-render.js"></script>
+    <script src="/markbind/js/jquery.min.js"></script><link rel="stylesheet" href="/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css"><link rel="stylesheet" href="/plugins/markbind-plugin-tree/markbind-plugin-tree.css"></head>
+<script>
+  const baseUrl = ''
+</script>
+<body >
+<div id="app" data-server-rendered="true"><html><head><meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title></title> <link rel="stylesheet" href="/o2des-studio/stylesheets/main.css"></head> <body><div id="app"><header><div data-v-15113a2f><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-primary" data-v-15113a2f><div class="container-fluid" data-v-15113a2f><div class="navbar-left" data-v-15113a2f><a href="/o2des-studio/index.html" title="Home" class="navbar-brand" data-v-15113a2f>O2DES Studio</a></div> <div class="navbar-default" data-v-15113a2f><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-15113a2f> <li data-v-15113a2f><a href="/o2des-studio/index.html" class="nav-link" data-v-15113a2f>Home</a></li> <li data-v-15113a2f><a href="/o2des-studio/userGuide/index.html" class="nav-link" data-v-15113a2f>User Guide</a></li> <li data-v-15113a2f><a href="/o2des-studio/developerGuide/index.html" class="nav-link" data-v-15113a2f>Developer Guide</a></li> <li data-v-15113a2f><a href="/o2des-studio/about.html" class="nav-link" data-v-15113a2f>About</a></li></ul></div> <!----></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-15113a2f><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" data-v-e8c82f88><div class="site-nav-top" data-v-e8c82f88><div class="fw-bold mb-2" style="font-size:1.25rem;" data-v-e8c82f88>Navigation</div></div> <div class="nav-component slim-scroll" data-v-e8c82f88><div data-v-e8c82f88><ul data-v-e8c82f88><li data-v-e8c82f88><a href="/o2des-studio/index.html" data-v-e8c82f88>Home</a></li> <li data-v-e8c82f88>User Guide
+<ul data-v-e8c82f88><li data-v-e8c82f88><a href="/o2des-studio/userGuide/gettingStarted.html" data-v-e8c82f88>Getting Started</a></li> <li data-v-e8c82f88><a href="/o2des-studio/userGuide/basicFeatures.html" data-v-e8c82f88>Basic Features</a></li> <li data-v-e8c82f88><a href="/o2des-studio/userGuide/advancedFeatures.html" data-v-e8c82f88>Advanced Features</a></li></ul></li> <li data-v-e8c82f88>Developer Guide
+<ul data-v-e8c82f88><li data-v-e8c82f88><a href="/o2des-studio/developerGuide/settingUp.html" data-v-e8c82f88>Setting Up</a></li> <li data-v-e8c82f88><a href="/o2des-studio/developerGuide/architecture.html" data-v-e8c82f88>Architecture</a></li> <li data-v-e8c82f88><a href="/o2des-studio/developerGuide/components.html" data-v-e8c82f88>Components</a></li> <li data-v-e8c82f88><a href="/o2des-studio/developerGuide/stateManagement.html" data-v-e8c82f88>State Management</a></li> <li data-v-e8c82f88><a href="/o2des-studio/developerGuide/nodeDevelopment.html" data-v-e8c82f88>Node Development</a></li> <li data-v-e8c82f88><a href="/o2des-studio/developerGuide/contributing.html" data-v-e8c82f88>Contributing</a></li></ul></li> <li data-v-e8c82f88><a href="/o2des-studio/about.html" data-v-e8c82f88>About</a></li></ul></div></div> <!----></nav> <div id="page-content"><div id="content-wrapper"><h1 id="state-management"><span id="state-management" class="anchor"></span>State Management<a href="#state-management" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <div class="lead">
+Learn how state is managed in O2DES Studio using Zustand and React hooks.
+</div> <h2 id="store-structure"><span id="store-structure" class="anchor"></span>Store Structure<a href="#store-structure" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="flow-store"><span id="flow-store" class="anchor"></span>Flow Store<a href="#flow-store" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> FlowStore {
+</span><span>    <span class="hljs-attr">nodes</span>: Node[];
+</span><span>    edges: Edge[];
+</span><span>    selected: Selection;
+</span><span>    history: HistoryState[];
+</span><span>    addNode: <span class="hljs-function">(<span class="hljs-params">node: Node</span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+</span><span>    updateNode: <span class="hljs-function">(<span class="hljs-params">id: <span class="hljs-built_in">string</span>, changes: Partial&lt;Node&gt;</span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+</span><span>    deleteNode: <span class="hljs-function">(<span class="hljs-params">id: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+</span><span>    <span class="hljs-comment">// ... more actions</span>
+</span><span>}
+</span></code></pre><h3 id="project-store"><span id="project-store" class="anchor"></span>Project Store<a href="#project-store" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> ProjectStore {
+</span><span>    <span class="hljs-attr">name</span>: <span class="hljs-built_in">string</span>;
+</span><span>    saved: <span class="hljs-built_in">boolean</span>;
+</span><span>    lastSaved: <span class="hljs-built_in">Date</span> | <span class="hljs-literal">null</span>;
+</span><span>    save: <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt;;
+</span><span>    load: <span class="hljs-function">(<span class="hljs-params">id: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt;;
+</span><span>}
+</span></code></pre><h2 id="using-stores"><span id="using-stores" class="anchor"></span>Using Stores<a href="#using-stores" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <pre><code class="hljs typescript"><span><span class="hljs-keyword">const</span> MyComponent = <span class="hljs-function">() =&gt;</span> {
+</span><span>    <span class="hljs-keyword">const</span> nodes = useFlowStore(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> state.nodes);
+</span><span>    <span class="hljs-keyword">const</span> addNode = useFlowStore(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> state.addNode);
+</span><span>
+</span><span>    <span class="hljs-comment">// Use store values and actions</span>
+</span><span>};
+</span></code></pre><h2 id="best-practices"><span id="best-practices" class="anchor"></span>Best Practices<a href="#best-practices" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li>Use selectors for performance</li> <li>Keep stores focused and minimal</li> <li>Implement proper error handling</li> <li>Use TypeScript for type safety</li> <li>Document store interfaces and actions</li></ul> <i id="scroll-top-button" onclick="handleScrollTop()" aria-hidden="true" class="fa fa-arrow-circle-up fa-lg d-print-none"></i></div> <nav id="page-nav" data-v-e8c82f88><div class="nav-component slim-scroll" data-v-e8c82f88></div> <!----></nav></div></div> <footer><div class="text-center"><small>[ Generated by MarkBind ]</small></div></footer></div></body></html></div>
+</body><script src="/markbind/js/bootstrap-utility.min.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
+</html>

@@ -1,0 +1,1103 @@
+2025-03-28T11:40:49.769Z - info: Website generation started at 7:40:49 PM
+2025-03-28T11:40:49.937Z - warn: ENOENT: no such file or directory, open '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/variables.md'
+2025-03-28T11:40:49.938Z - info: Building assets...
+2025-03-28T11:40:50.049Z - info: Assets built
+2025-03-28T11:40:50.050Z - info: Generating pages...
+2025-03-28T11:40:50.078Z - error:  Error: template not found: userGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:40:50.078Z - error:  Error: template not found: developerGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:40:50.079Z - error:  Error: template not found: about.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:40:50.080Z - error: 'default.md' layout does not exist
+2025-03-28T11:40:50.091Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1171:18
+2025-03-28T11:40:50.096Z - error:  TypeError: Cannot read properties of undefined (reading 'join')
+    at Page.prepareTemplateData (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:150:73)
+    at Page.outputPageHtml (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:547:12)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:541:18)
+    at async /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:11
+2025-03-28T11:40:50.268Z - info: Site data built
+2025-03-28T11:40:50.268Z - info: Website generation complete! Total build time: 0.532s
+2025-03-28T11:40:50.279Z - info: Serving "/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_site" at http://127.0.0.1:8080
+2025-03-28T11:40:50.279Z - info: Press CTRL+C to stop ...
+2025-03-28T11:41:22.504Z - info: [7:41:22 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/variables.md
+2025-03-28T11:41:23.513Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:41:24.517Z - warn: Rebuilding all pages...
+2025-03-28T11:41:24.517Z - info: Generating pages...
+2025-03-28T11:41:24.536Z - error:  Error: template not found: userGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:24.536Z - error:  Error: template not found: developerGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:24.536Z - error:  Error: template not found: about.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:24.537Z - error: 'default.md' layout does not exist
+2025-03-28T11:41:24.540Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1171:18
+2025-03-28T11:41:24.547Z - error:  TypeError: Cannot read properties of undefined (reading 'join')
+    at Page.prepareTemplateData (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:150:73)
+    at Page.outputPageHtml (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:547:12)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:541:18)
+    at async /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:11
+2025-03-28T11:41:25.300Z - info: [7:41:25 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/variables.md
+2025-03-28T11:41:26.364Z - warn: Rebuilding all pages as variables file was changed, or the --force-reload flag was set
+2025-03-28T11:41:26.370Z - info: Rebuilding 4 pages
+2025-03-28T11:41:26.390Z - error:  Error: template not found: userGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:26.391Z - error:  Error: template not found: developerGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:26.392Z - error:  Error: template not found: about.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:26.399Z - error: 'default.md' layout does not exist
+2025-03-28T11:41:26.409Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1171:18
+2025-03-28T11:41:26.414Z - error:  TypeError: Cannot read properties of undefined (reading 'join')
+    at Page.prepareTemplateData (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:150:73)
+    at Page.outputPageHtml (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:547:12)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:541:18)
+    at async /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:11
+2025-03-28T11:41:35.863Z - info: [7:41:35 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:41:36.890Z - info: Assets built
+2025-03-28T11:41:38.521Z - info: [7:41:38 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:41:39.531Z - info: Assets built
+2025-03-28T11:41:48.303Z - info: [7:41:48 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md
+2025-03-28T11:41:49.307Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:41:50.321Z - warn: Rebuilding all pages...
+2025-03-28T11:41:50.321Z - info: Generating pages...
+2025-03-28T11:41:50.333Z - error:  Error: template not found: developerGuide/index.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:50.334Z - error:  Error: template not found: about.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:41:50.340Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:41:50.342Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1171:18
+2025-03-28T11:41:50.902Z - info: [7:41:50 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md
+2025-03-28T11:41:51.904Z - info: Rebuilding 1 pages
+2025-03-28T11:41:51.920Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:41:51.920Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:41:51.920Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:41:51.921Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:41:51.921Z - info: Site data built
+2025-03-28T11:41:51.921Z - info: Pages rebuilt
+2025-03-28T11:41:51.921Z - info: Website regeneration complete! Total build time: 0.017s
+2025-03-28T11:42:00.503Z - info: [7:42:00 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md
+2025-03-28T11:42:01.507Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:42:02.509Z - warn: Rebuilding all pages...
+2025-03-28T11:42:02.510Z - info: Generating pages...
+2025-03-28T11:42:02.522Z - error:  Error: template not found: about.md
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:96:13)
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:328:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:135:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:326:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/nunjucks/src/lib.js:332:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableRenderer.js:71:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/variables/VariableProcessor.js:147:57)
+    at Page.generate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js:491:37)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1163:22
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:34
+    at Array.forEach (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1181:10
+    at Promise._execute (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/bluebird/js/release/debuggability.js:384:9)
+2025-03-28T11:42:02.525Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:42:02.526Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js:1171:18
+2025-03-28T11:42:03.319Z - info: [7:42:03 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md
+2025-03-28T11:42:04.322Z - info: Rebuilding 1 pages
+2025-03-28T11:42:04.339Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.340Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:04.341Z - info: Site data built
+2025-03-28T11:42:04.341Z - info: Pages rebuilt
+2025-03-28T11:42:04.341Z - info: Website regeneration complete! Total build time: 0.02s
+2025-03-28T11:42:17.124Z - info: [7:42:17 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md
+2025-03-28T11:42:18.127Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:42:19.133Z - warn: Rebuilding all pages...
+2025-03-28T11:42:19.134Z - info: Generating pages...
+2025-03-28T11:42:19.158Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:42:19.175Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:42:19.175Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:19.175Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:42:19.176Z - info: Pages built
+2025-03-28T11:42:20.228Z - info: [7:42:20 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md
+2025-03-28T11:42:21.229Z - info: Rebuilding 1 pages
+2025-03-28T11:42:21.236Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:42:21.237Z - info: Site data built
+2025-03-28T11:42:21.237Z - info: Pages rebuilt
+2025-03-28T11:42:21.237Z - info: Website regeneration complete! Total build time: 0.008s
+2025-03-28T11:42:58.022Z - info: [7:42:58 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/head/styles.md
+2025-03-28T11:42:59.027Z - info: Assets built
+2025-03-28T11:42:59.971Z - info: [7:42:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/head/styles.md
+2025-03-28T11:43:00.974Z - info: Assets built
+2025-03-28T11:43:39.108Z - info: [7:43:39 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/stylesheets/main.css
+2025-03-28T11:43:40.117Z - info: Assets built
+2025-03-28T11:43:41.661Z - info: [7:43:41 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/stylesheets/main.css
+2025-03-28T11:43:42.666Z - info: Assets built
+2025-03-28T11:45:40.277Z - info: [7:45:40 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md
+2025-03-28T11:45:41.280Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:45:42.176Z - info: [7:45:42 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md
+2025-03-28T11:45:42.283Z - warn: Rebuilding all pages...
+2025-03-28T11:45:42.283Z - info: Generating pages...
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.343Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:42.344Z - info: Pages built
+2025-03-28T11:45:43.183Z - info: Rebuilding 4 pages
+2025-03-28T11:45:43.204Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.204Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.204Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.204Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.204Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:45:43.205Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:45:43.206Z - info: Site data built
+2025-03-28T11:45:43.206Z - info: Pages rebuilt
+2025-03-28T11:45:43.206Z - info: Website regeneration complete! Total build time: 0.024s
+2025-03-28T11:46:59.100Z - info: [7:46:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:47:00.119Z - info: Rebuilding 4 pages
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:00.143Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:00.144Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:47:00.145Z - info: Site data built
+2025-03-28T11:47:00.145Z - info: Pages rebuilt
+2025-03-28T11:47:00.145Z - info: Website regeneration complete! Total build time: 0.026s
+2025-03-28T11:47:45.421Z - info: [7:47:45 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:47:46.433Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:47:46.435Z - info: Rebuilding 4 pages
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-anchors.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-tokenizer.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/css/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.457Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.458Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.458Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.458Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.458Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:47:46.458Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:47:46.458Z - info: Site data built
+2025-03-28T11:47:46.458Z - info: Pages rebuilt
+2025-03-28T11:47:46.458Z - info: Website regeneration complete! Total build time: 0.024s
+2025-03-28T11:48:02.242Z - info: [7:48:02 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/site.json
+2025-03-28T11:48:03.254Z - warn: Unable to load plugin markbind-plugin-tokenizer, skipping...
+Error: Cannot find module 'markbind-plugin-tokenizer'
+Require stack:
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/plugins/PluginManager.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/linkProcessor.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/markbind-cli/index.js
+2025-03-28T11:48:03.255Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:48:04.259Z - warn: Rebuilding all pages...
+2025-03-28T11:48:04.260Z - info: Generating pages...
+2025-03-28T11:48:04.287Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:48:04.306Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-anchors.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-tokenizer.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/css/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.307Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:04.308Z - info: Pages built
+2025-03-28T11:48:04.308Z - info: Site data built
+2025-03-28T11:48:16.812Z - info: Initialization success.
+2025-03-28T11:48:16.914Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/404.md
+2025-03-28T11:48:16.915Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/404.md
+2025-03-28T11:48:16.915Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/variables.json
+2025-03-28T11:48:16.915Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/topic1.md
+2025-03-28T11:48:16.915Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/topic2.md
+2025-03-28T11:48:16.915Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/topic3a.md
+2025-03-28T11:48:16.916Z - info: [7:48:16 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/topic3b.md
+2025-03-28T11:48:17.922Z - info: Assets built
+2025-03-28T11:48:25.891Z - info: Website generation started at 7:48:25 PM
+2025-03-28T11:48:26.060Z - warn: Unable to load plugin markbind-plugin-tokenizer, skipping...
+Error: Cannot find module 'markbind-plugin-tokenizer'
+Require stack:
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/plugins/PluginManager.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/linkProcessor.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Page/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/Site/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/index.js
+- /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/markbind-cli/index.js
+2025-03-28T11:48:26.101Z - info: Building assets...
+2025-03-28T11:48:26.276Z - info: Assets built
+2025-03-28T11:48:26.276Z - info: Generating pages...
+2025-03-28T11:48:26.325Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:48:26.374Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:48:26.374Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:26.374Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/plugins/markbind-plugin-anchors.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/plugins/markbind-plugin-tokenizer.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:26.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/css/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:48:26.376Z - info: Pages built
+2025-03-28T11:48:26.583Z - info: Site data built
+2025-03-28T11:48:26.583Z - info: Website generation complete! Total build time: 0.731s
+2025-03-28T11:48:27.598Z - info: Serving "/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_site" at http://127.0.0.1:52676
+2025-03-28T11:48:27.598Z - info: Press CTRL+C to stop ...
+2025-03-28T11:50:03.299Z - info: [7:50:03 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/site.json
+2025-03-28T11:50:04.308Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:50:05.311Z - warn: Rebuilding all pages...
+2025-03-28T11:50:05.311Z - info: Generating pages...
+2025-03-28T11:50:05.343Z - error:  Error: No such file: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/navigation/site-nav.md
+Missing reference in /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+    at _getFileExistsNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:34:19)
+    at processInclude (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/includePanelProcessor.js:188:26)
+    at NodeProcessor.processNode (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:176:28)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:323:24)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:327:22
+    at Array.forEach (<anonymous>)
+    at NodeProcessor.traverse (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/node_modules/@markbind/core/src/html/NodeProcessor.js:326:27)
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-anchors.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/plugins/markbind-plugin-tokenizer.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.364Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/css/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:05.365Z - info: Pages built
+2025-03-28T11:50:05.366Z - info: Site data built
+2025-03-28T11:50:30.602Z - info: [7:50:30 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:50:31.612Z - info: Rebuilding 4 pages
+2025-03-28T11:50:31.637Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:31.637Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:31.637Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:31.637Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:31.637Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:50:31.638Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:50:31.639Z - info: Site data built
+2025-03-28T11:50:31.639Z - info: Pages rebuilt
+2025-03-28T11:50:31.639Z - info: Website regeneration complete! Total build time: 0.027s
+2025-03-28T11:50:55.125Z - info: [7:50:55 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/navigation/site-nav.md
+2025-03-28T11:50:56.128Z - info: Assets built
+2025-03-28T11:51:06.888Z - info: [7:51:06 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/navigation/site-nav.md
+2025-03-28T11:51:07.891Z - info: Assets built
+2025-03-28T11:51:08.457Z - info: Website generation started at 7:51:08 PM
+2025-03-28T11:51:08.657Z - info: Building assets...
+2025-03-28T11:51:08.776Z - info: Assets built
+2025-03-28T11:51:08.776Z - info: Generating pages...
+2025-03-28T11:51:08.863Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:51:08.863Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:51:08.863Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:51:08.863Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:51:08.863Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.864Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:51:08.865Z - info: Pages built
+2025-03-28T11:51:09.179Z - info: Site data built
+2025-03-28T11:51:09.179Z - info: Website generation complete! Total build time: 0.786s
+2025-03-28T11:51:10.193Z - info: Serving "/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_site" at http://127.0.0.1:53017
+2025-03-28T11:51:10.193Z - info: Press CTRL+C to stop ...
+2025-03-28T11:54:59.470Z - info: [7:54:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/stylesheets/main.css
+2025-03-28T11:55:00.489Z - info: Assets built
+2025-03-28T11:55:17.271Z - info: [7:55:17 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md
+2025-03-28T11:55:18.336Z - info: Rebuilding 4 pages
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.375Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:55:18.376Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:55:18.377Z - info: Site data built
+2025-03-28T11:55:18.377Z - info: Pages rebuilt
+2025-03-28T11:55:18.377Z - info: Website regeneration complete! Total build time: 0.051s
+2025-03-28T11:56:35.691Z - info: [7:56:35 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/stylesheets/main.css
+2025-03-28T11:56:36.699Z - info: Assets built
+2025-03-28T11:57:59.457Z - info: [7:57:59 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/site.json
+2025-03-28T11:58:00.472Z - info: Pages or site config modified, updating pages...
+2025-03-28T11:58:01.473Z - warn: Rebuilding all pages...
+2025-03-28T11:58:01.473Z - info: Generating pages...
+2025-03-28T11:58:01.587Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T11:58:01.587Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:58:01.587Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/index.md'
+2025-03-28T11:58:01.587Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/gettingStarted.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/gettingStarted.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/templates.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/gettingStarted.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/index.md'
+2025-03-28T11:58:01.588Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:58:01.589Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:58:01.589Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:58:01.589Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:58:01.589Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T11:58:01.589Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.590Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.591Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.591Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T11:58:01.591Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/about.md'
+2025-03-28T11:58:01.591Z - info: Pages built
+2025-03-28T11:58:01.591Z - info: Site data built
+2025-03-28T11:59:26.917Z - info: [7:59:26 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/basicFeatures.md
+2025-03-28T11:59:27.924Z - info: Assets built
+2025-03-28T11:59:30.322Z - info: [7:59:30 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/basicFeatures.md
+2025-03-28T11:59:31.325Z - info: Assets built
+2025-03-28T11:59:41.907Z - info: [7:59:41 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/advancedFeatures.md
+2025-03-28T11:59:42.910Z - info: Assets built
+2025-03-28T11:59:44.056Z - info: [7:59:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/advancedFeatures.md
+2025-03-28T11:59:45.058Z - info: Assets built
+2025-03-28T11:59:54.126Z - info: [7:59:54 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/settingUp.md
+2025-03-28T11:59:55.130Z - info: Assets built
+2025-03-28T11:59:56.266Z - info: [7:59:56 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/settingUp.md
+2025-03-28T11:59:57.268Z - info: Assets built
+2025-03-28T12:00:12.280Z - info: [8:00:12 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/architecture.md
+2025-03-28T12:00:13.681Z - info: Assets built
+2025-03-28T12:00:28.999Z - info: [8:00:28 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/components.md
+2025-03-28T12:00:30.002Z - info: Assets built
+2025-03-28T12:00:30.940Z - info: [8:00:30 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/components.md
+2025-03-28T12:00:31.942Z - info: Assets built
+2025-03-28T12:00:45.010Z - info: [8:00:45 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/stateManagement.md
+2025-03-28T12:00:46.013Z - info: Assets built
+2025-03-28T12:00:47.443Z - info: [8:00:47 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/stateManagement.md
+2025-03-28T12:00:48.446Z - info: Assets built
+2025-03-28T12:01:00.903Z - info: [8:01:00 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/nodeDevelopment.md
+2025-03-28T12:01:01.906Z - info: Assets built
+2025-03-28T12:01:03.144Z - info: [8:01:03 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/nodeDevelopment.md
+2025-03-28T12:01:04.145Z - info: Assets built
+2025-03-28T12:01:20.696Z - info: [8:01:20 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/contributing.md
+2025-03-28T12:01:21.701Z - info: Assets built
+2025-03-28T12:01:23.119Z - info: [8:01:23 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/developerGuide/contributing.md
+2025-03-28T12:01:24.122Z - info: Assets built
+2025-03-28T12:01:44.120Z - info: [8:01:44 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/site.json
+2025-03-28T12:01:45.136Z - info: Pages or site config modified, updating pages...
+2025-03-28T12:01:46.138Z - warn: Rebuilding all pages...
+2025-03-28T12:01:46.138Z - info: Generating pages...
+2025-03-28T12:01:46.275Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/faq.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/index.md'
+2025-03-28T12:01:46.275Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/userGuide/templates.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/userGuide/gettingStarted.md'
+2025-03-28T12:01:46.275Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/stylesheets/main.css' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T12:01:46.275Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/default.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/index.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/gettingStarted.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/basicFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/userGuide/advancedFeatures.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/settingUp.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/architecture.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/components.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/stateManagement.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/nodeDevelopment.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/developerGuide/contributing.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - warn: You might have an invalid intra-link! Ignore this warning if it was intended.
+'/o2des-studio/about.html' found in file '/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/_markbind/layouts/_markbind/navigation/site-nav.md'
+2025-03-28T12:01:46.276Z - info: Pages built
+2025-03-28T12:01:46.277Z - info: Site data built
+2025-03-28T12:03:14.569Z - info: [8:03:14 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/site.json
+2025-03-28T12:03:14.580Z - info: No pages needed to be rebuilt
+2025-03-28T12:03:25.388Z - info: [8:03:25 PM] Reload for file add: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/package.json
+2025-03-28T12:03:26.399Z - info: Assets built
+2025-03-28T12:03:28.384Z - info: [8:03:28 PM] Reload for file change: /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/package.json
+2025-03-28T12:03:29.389Z - info: Assets built
