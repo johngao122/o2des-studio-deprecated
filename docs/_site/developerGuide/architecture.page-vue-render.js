@@ -89,7 +89,7 @@ with(this){return _c('pre',[_c('code',{pre:true,attrs:{"class":"hljs typescript"
 with(this){return _c('h2',{attrs:{"id":"contributing"}},[_c('span',{staticClass:"anchor",attrs:{"id":"contributing"}}),_v("Contributing"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#contributing","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_v("See our "),_c('a',{attrs:{"href":"/developerGuide/contributing.html"}},[_v("Contributing Guide")]),_v(" for detailed information on:")])}
+with(this){return _c('p',[_v("See our "),_c('a',{attrs:{"href":"/o2des-studio/developerGuide/contributing.html"}},[_v("Contributing Guide")]),_v(" for detailed information on:")])}
 },function anonymous(
 ) {
 with(this){return _c('ul',[_c('li',[_v("Setting up the development environment")]),_v(" "),_c('li',[_v("Code style guidelines")]),_v(" "),_c('li',[_v("Pull request process")]),_v(" "),_c('li',[_v("Testing requirements")])])}
