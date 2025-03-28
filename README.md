@@ -1,10 +1,34 @@
-# o2des-studio
+# O2DES Studio
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A modern, feature-rich diagram editor built with Next.js and React Flow. Create, edit, and manage flow diagrams with an intuitive interface and powerful features.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+-   Node.js 18+
+-   npm, yarn, or pnpm
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/o2des-studio.git
+cd o2des-studio
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Start the development server:
 
 ```bash
 npm run dev
@@ -12,37 +36,81 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Keyboard Shortcuts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   `Ctrl + S`: Save diagram
+-   `Ctrl + O`: Open diagram
+-   `Ctrl + N`: New diagram
+-   `Ctrl + Z`: Undo
+-   `Ctrl + Y`: Redo
+-   `Ctrl + =`: Zoom in
+-   `Ctrl + -`: Zoom out
+-   `Ctrl + 0`: Fit view
+-   `Ctrl + Alt + D`: Toggle dark mode
+-   `Ctrl + B`: Toggle sidebar
+-   `Ctrl + M`: Toggle minimap
+-   `Ctrl + L`: Toggle controls
+-   `Ctrl + /`: Show shortcuts help
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── draw/              # Main diagram editor page
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── nodes/            # Custom node components
+│   └── ui/               # UI components
+├── lib/                   # Utility functions and stores
+│   ├── store/            # Zustand stores
+│   └── constants/        # Constants and configurations
+└── data/                 # Static data and examples
+```
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   [Next.js](https://nextjs.org/) - React framework
+-   [React Flow](https://reactflow.dev/) - Flow diagram library
+-   [Zustand](https://github.com/pmndrs/zustand) - State management
+-   [Tailwind CSS](https://tailwindcss.com/) - Styling
+-   [shadcn/ui](https://ui.shadcn.com/) - UI components
+-   [TypeScript](https://www.typescriptlang.org/) - Type safety
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Building for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
 
-## Continuous Integration
+### Running Tests
 
-This project uses GitHub Actions for continuous integration. The following workflows are set up:
+```bash
+npm run test
+# or
+yarn test
+# or
+pnpm test
+```
 
--   **CI**: Runs on push to main branch and pull requests. It installs dependencies, runs linting, and builds the application.
--   **Type Check**: Ensures TypeScript types are correct throughout the codebase.
--   **Dependency Review**: Scans for vulnerabilities in the project dependencies on pull requests.
+## Known Bugs
 
-GitHub Actions workflow files are located in the `.github/workflows` directory.
+-   Table saving doesn't work (content and styles not saved properly)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request

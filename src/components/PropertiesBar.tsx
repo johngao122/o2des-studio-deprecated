@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useReactFlow, Node } from "reactflow";
+import { useReactFlow, Node, Edge } from "reactflow";
 import { useNodeStyleStore, NodeStyle } from "@/lib/store/useNodeStyleStore";
+import { useEdgeStyleStore, EdgeStyle } from "@/lib/store/useEdgeStyleStore";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -23,10 +24,14 @@ type FlowNode = Node<NodeData | TableNodeData>;
 
 interface PropertiesBarProps {
     selectedNodes: FlowNode[];
+    selectedEdges: Edge[];
 }
 
-export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
-    const { getNode, setNodes, getNodes } = useReactFlow<
+export const PropertiesBar = ({
+    selectedNodes,
+    selectedEdges,
+}: PropertiesBarProps) => {
+    const { getNode, setNodes, getNodes, getEdges, setEdges } = useReactFlow<
         NodeData | TableNodeData
     >();
     const {
@@ -37,15 +42,28 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         resetNodeStyle,
     } = useNodeStyleStore();
 
+    const {
+        selectedEdgeId,
+        setSelectedEdgeId,
+        getEdgeStyle,
+        updateEdgeStyle,
+        resetEdgeStyle,
+    } = useEdgeStyleStore();
+
     const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+    const [selectedEdge, setSelectedEdge] = useState<Edge | null>(null);
     const [nodeLabel, setNodeLabel] = useState("");
     const [nodeId, setNodeId] = useState("");
     const [multiSelection, setMultiSelection] = useState(false);
+    const [edgeMultiSelection, setEdgeMultiSelection] = useState(false);
 
     const [commonStyle, setCommonStyle] = useState<Partial<NodeStyle> | null>(
         null
     );
+    const [commonEdgeStyle, setCommonEdgeStyle] =
+        useState<Partial<EdgeStyle> | null>(null);
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
+    const [selectedEdgeIds, setSelectedEdgeIds] = useState<string[]>([]);
 
     const [rows, setRows] = useState(3);
     const [columns, setColumns] = useState(3);
@@ -125,6 +143,61 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         }
     }, [selectedNodes]);
 
+    useEffect(() => {
+        if (selectedEdges.length === 1) {
+            const edge = selectedEdges[0];
+            console.log("Single edge selected:", edge);
+            setSelectedEdge(edge);
+            setSelectedEdgeId(edge.id);
+            setEdgeMultiSelection(false);
+            setSelectedEdgeIds([edge.id]);
+        } else if (selectedEdges.length > 1) {
+            console.log("Multiple edges selected:", selectedEdges.length);
+            setSelectedEdge(null);
+            setSelectedEdgeId(null);
+            setEdgeMultiSelection(true);
+            const ids = selectedEdges.map((edge) => edge.id);
+            setSelectedEdgeIds(ids);
+        } else {
+            console.log("No edges selected");
+            setSelectedEdge(null);
+            setSelectedEdgeId(null);
+            setEdgeMultiSelection(false);
+            setSelectedEdgeIds([]);
+        }
+    }, [selectedEdges, setSelectedEdgeId]);
+
+    useEffect(() => {
+        if (edgeMultiSelection && selectedEdges.length > 1) {
+            console.log(
+                "Calculating common edge styles for multiple selection"
+            );
+            const edgeStyles = selectedEdges.map((edge) =>
+                getEdgeStyle(edge.id)
+            );
+            const firstStyle = edgeStyles[0];
+            const common: Partial<EdgeStyle> = {};
+
+            Object.keys(firstStyle).forEach((key) => {
+                const property = key as keyof EdgeStyle;
+                const firstValue = firstStyle[property];
+                const allMatch = edgeStyles.every(
+                    (style) => style[property] === firstValue
+                );
+
+                if (allMatch) {
+                    common[property] = firstValue as any;
+                }
+            });
+
+            console.log("Common edge styles:", common);
+            setCommonEdgeStyle(common);
+        } else {
+            console.log("No common edge styles to calculate");
+            setCommonEdgeStyle(null);
+        }
+    }, [edgeMultiSelection, selectedEdges, getEdgeStyle]);
+
     const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNodeLabel(e.target.value);
 
@@ -187,6 +260,45 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         ? commonStyle
         : selectedNodeId
         ? getNodeStyle(selectedNodeId)
+        : null;
+
+    const handleEdgeStyleChange = (property: keyof EdgeStyle, value: any) => {
+        console.log("Edge style change:", { property, value });
+        if (edgeMultiSelection) {
+            console.log("Applying style to multiple edges:", selectedEdgeIds);
+            selectedEdgeIds.forEach((id) => {
+                updateEdgeStyle(id, { [property]: value });
+            });
+
+            setCommonEdgeStyle((prev) =>
+                prev ? { ...prev, [property]: value } : null
+            );
+        } else if (selectedEdgeId) {
+            console.log("Applying style to single edge:", selectedEdgeId);
+            updateEdgeStyle(selectedEdgeId, { [property]: value });
+        }
+    };
+
+    const handleResetEdgeStyle = () => {
+        console.log("Resetting edge styles");
+        if (edgeMultiSelection) {
+            console.log(
+                "Resetting styles for multiple edges:",
+                selectedEdgeIds
+            );
+            selectedEdgeIds.forEach((id) => {
+                resetEdgeStyle(id);
+            });
+        } else if (selectedEdgeId) {
+            console.log("Resetting style for single edge:", selectedEdgeId);
+            resetEdgeStyle(selectedEdgeId);
+        }
+    };
+
+    const edgeStyle = edgeMultiSelection
+        ? commonEdgeStyle
+        : selectedEdgeId
+        ? getEdgeStyle(selectedEdgeId)
         : null;
 
     const handleRowsChange = (value: number) => {
@@ -283,363 +395,336 @@ export const PropertiesBar = ({ selectedNodes }: PropertiesBarProps) => {
         );
     };
 
-    if (selectedNodes.length === 0) {
+    if (selectedNodes.length === 0 && selectedEdges.length === 0) {
         return null;
     }
 
     return (
-        <div className="w-72 bg-white dark:bg-gray-800 border-l border-gray-200 dark:border-gray-700 h-screen overflow-y-auto p-4 animate-in slide-in-from-right duration-300 absolute right-0 top-0 z-10">
-            <h2 className="text-lg font-semibold mb-4">
-                {multiSelection ? "Multiple Selection" : "Properties"}
-            </h2>
-
-            <Tabs defaultValue="general">
+        <div className="w-80 h-full bg-background border-l border-border p-4 overflow-y-auto fixed right-0 top-0 bottom-0">
+            <Tabs defaultValue="properties" className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="general">General</TabsTrigger>
-                    <TabsTrigger value="style">Style</TabsTrigger>
+                    <TabsTrigger value="properties">Properties</TabsTrigger>
+                    <TabsTrigger value="styles">Styles</TabsTrigger>
                 </TabsList>
-
-                <TabsContent value="general" className="space-y-4 mt-4">
-                    <div className="space-y-2">
-                        <Label htmlFor="node-label">
-                            {multiSelection ? "Common Label" : "Label"}
-                        </Label>
-                        <Input
-                            id="node-label"
-                            value={nodeLabel}
-                            onChange={handleLabelChange}
-                            placeholder={
-                                multiSelection
-                                    ? "Set label for all nodes"
-                                    : "Node Label"
-                            }
-                            disabled={
-                                multiSelection && !commonStyle?.backgroundColor
-                            }
-                        />
-                        {multiSelection && !commonStyle?.backgroundColor && (
-                            <div className="text-xs text-amber-500 mt-1">
-                                Nodes have different labels
+                <TabsContent value="properties">
+                    {selectedNodes.length > 0 ? (
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <Label>Label</Label>
+                                <Input
+                                    value={nodeLabel}
+                                    onChange={handleLabelChange}
+                                    placeholder="Enter label"
+                                />
                             </div>
-                        )}
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="node-id">ID</Label>
-                        <Input
-                            id="node-id"
-                            value={
-                                multiSelection
-                                    ? `${selectedNodes.length} nodes selected`
-                                    : nodeId
-                            }
-                            disabled
-                            className="bg-gray-100 dark:bg-gray-700"
-                        />
-                    </div>
-
-                    {selectedNodes.length === 1 &&
-                        selectedNodes[0].type === "tableNode" && (
-                            <div className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label>Rows</Label>
-                                    <Input
-                                        type="number"
-                                        min={1}
-                                        max={30}
-                                        value={rows}
-                                        onChange={(e) => {
-                                            const value =
-                                                e.target.value === ""
-                                                    ? 1
-                                                    : parseInt(e.target.value);
-                                            handleRowsChange(value);
-                                        }}
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label>Columns</Label>
-                                    <Input
-                                        type="number"
-                                        min={1}
-                                        max={30}
-                                        value={columns}
-                                        onChange={(e) => {
-                                            const value =
-                                                e.target.value === ""
-                                                    ? 1
-                                                    : parseInt(e.target.value);
-                                            handleColumnsChange(value);
-                                        }}
-                                    />
-                                </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="node-id">ID</Label>
+                                <Input
+                                    id="node-id"
+                                    value={
+                                        multiSelection
+                                            ? `${selectedNodes.length} nodes selected`
+                                            : nodeId
+                                    }
+                                    disabled
+                                    className="bg-gray-100 dark:bg-gray-700"
+                                />
                             </div>
-                        )}
+                            {selectedNodes.length === 1 &&
+                                selectedNodes[0].type === "tableNode" && (
+                                    <div className="space-y-4">
+                                        <div className="space-y-2">
+                                            <Label>Rows</Label>
+                                            <Input
+                                                type="number"
+                                                min={1}
+                                                max={30}
+                                                value={rows}
+                                                onChange={(e) => {
+                                                    const value =
+                                                        e.target.value === ""
+                                                            ? 1
+                                                            : parseInt(
+                                                                  e.target.value
+                                                              );
+                                                    handleRowsChange(value);
+                                                }}
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label>Columns</Label>
+                                            <Input
+                                                type="number"
+                                                min={1}
+                                                max={30}
+                                                value={columns}
+                                                onChange={(e) => {
+                                                    const value =
+                                                        e.target.value === ""
+                                                            ? 1
+                                                            : parseInt(
+                                                                  e.target.value
+                                                              );
+                                                    handleColumnsChange(value);
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                        </div>
+                    ) : selectedEdges.length > 0 ? (
+                        <div className="space-y-4">
+                            <div className="space-y-2">
+                                <Label>Edge ID</Label>
+                                <Input
+                                    value={
+                                        edgeMultiSelection
+                                            ? `${selectedEdges.length} edges selected`
+                                            : selectedEdge?.id || ""
+                                    }
+                                    disabled
+                                    className="bg-gray-100 dark:bg-gray-700"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Source</Label>
+                                <Input
+                                    value={selectedEdge?.source || ""}
+                                    disabled
+                                    className="bg-gray-100 dark:bg-gray-700"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Target</Label>
+                                <Input
+                                    value={selectedEdge?.target || ""}
+                                    disabled
+                                    className="bg-gray-100 dark:bg-gray-700"
+                                />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="p-4 text-center text-muted-foreground">
+                            Select a node or edge to view properties
+                        </div>
+                    )}
                 </TabsContent>
-
-                <TabsContent value="style" className="space-y-4 mt-4">
-                    {nodeStyle && (
-                        <>
-                            {/* Background Color */}
-                            <div className="space-y-2">
-                                <Label htmlFor="background-color">
-                                    Background Color
-                                </Label>
-                                {nodeStyle.backgroundColor !== undefined ? (
-                                    <div className="flex gap-2">
-                                        <Input
-                                            id="background-color"
-                                            type="color"
-                                            value={nodeStyle.backgroundColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "backgroundColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="w-12 h-8 p-0 rounded"
-                                        />
-                                        <Input
-                                            value={nodeStyle.backgroundColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "backgroundColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="flex-1"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different background colors
-                                    </div>
-                                )}
+                <TabsContent value="styles">
+                    {selectedNodes.length > 0 ? (
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <Label>Node Style</Label>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={handleResetStyle}
+                                >
+                                    Reset
+                                </Button>
                             </div>
-
-                            {/* Border Color */}
                             <div className="space-y-2">
-                                <Label htmlFor="border-color">
-                                    Border Color
-                                </Label>
-                                {nodeStyle.borderColor !== undefined ? (
-                                    <div className="flex gap-2">
-                                        <Input
-                                            id="border-color"
-                                            type="color"
-                                            value={nodeStyle.borderColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "borderColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="w-12 h-8 p-0 rounded"
-                                        />
-                                        <Input
-                                            value={nodeStyle.borderColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "borderColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="flex-1"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different border colors
-                                    </div>
-                                )}
+                                <Label>Background Color</Label>
+                                <Input
+                                    type="color"
+                                    value={
+                                        nodeStyle?.backgroundColor || "#ffffff"
+                                    }
+                                    onChange={(e) =>
+                                        handleStyleChange(
+                                            "backgroundColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
                             </div>
-
-                            {/* Border Width */}
                             <div className="space-y-2">
-                                <Label htmlFor="border-width">
-                                    Border Width{" "}
-                                    {nodeStyle.borderWidth !== undefined
-                                        ? `(${nodeStyle.borderWidth}px)`
-                                        : ""}
-                                </Label>
-                                {nodeStyle.borderWidth !== undefined ? (
-                                    <Slider
-                                        id="border-width"
-                                        min={0}
-                                        max={10}
-                                        step={1}
-                                        value={[nodeStyle.borderWidth]}
-                                        onValueChange={(value: number[]) =>
-                                            handleStyleChange(
-                                                "borderWidth",
-                                                value[0]
-                                            )
-                                        }
-                                    />
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different border widths
-                                    </div>
-                                )}
+                                <Label>Border Color</Label>
+                                <Input
+                                    type="color"
+                                    value={nodeStyle?.borderColor || "#000000"}
+                                    onChange={(e) =>
+                                        handleStyleChange(
+                                            "borderColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
                             </div>
-
-                            {/* Border Style */}
                             <div className="space-y-2">
-                                <Label htmlFor="border-style">
-                                    Border Style
-                                </Label>
-                                {nodeStyle.borderStyle !== undefined ? (
-                                    <Select
-                                        value={nodeStyle.borderStyle}
-                                        onValueChange={(value: string) =>
-                                            handleStyleChange(
-                                                "borderStyle",
-                                                value as
-                                                    | "solid"
-                                                    | "dashed"
-                                                    | "dotted"
-                                            )
-                                        }
-                                    >
-                                        <SelectTrigger id="border-style">
-                                            <SelectValue placeholder="Select border style" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="solid">
-                                                Solid
-                                            </SelectItem>
-                                            <SelectItem value="dashed">
-                                                Dashed
-                                            </SelectItem>
-                                            <SelectItem value="dotted">
-                                                Dotted
-                                            </SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different border styles
-                                    </div>
-                                )}
+                                <Label>Border Width</Label>
+                                <Slider
+                                    value={[nodeStyle?.borderWidth || 1]}
+                                    min={1}
+                                    max={10}
+                                    step={1}
+                                    onValueChange={([value]) =>
+                                        handleStyleChange("borderWidth", value)
+                                    }
+                                />
                             </div>
-
-                            {/* Text Color */}
                             <div className="space-y-2">
-                                <Label htmlFor="text-color">Text Color</Label>
-                                {nodeStyle.textColor !== undefined ? (
-                                    <div className="flex gap-2">
-                                        <Input
-                                            id="text-color"
-                                            type="color"
-                                            value={nodeStyle.textColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "textColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="w-12 h-8 p-0 rounded"
-                                        />
-                                        <Input
-                                            value={nodeStyle.textColor}
-                                            onChange={(
-                                                e: React.ChangeEvent<HTMLInputElement>
-                                            ) =>
-                                                handleStyleChange(
-                                                    "textColor",
-                                                    e.target.value
-                                                )
-                                            }
-                                            className="flex-1"
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different text colors
-                                    </div>
-                                )}
+                                <Label>Border Style</Label>
+                                <Select
+                                    value={nodeStyle?.borderStyle || "solid"}
+                                    onValueChange={(
+                                        value: "solid" | "dashed" | "dotted"
+                                    ) =>
+                                        handleStyleChange("borderStyle", value)
+                                    }
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="solid">
+                                            Solid
+                                        </SelectItem>
+                                        <SelectItem value="dashed">
+                                            Dashed
+                                        </SelectItem>
+                                        <SelectItem value="dotted">
+                                            Dotted
+                                        </SelectItem>
+                                    </SelectContent>
+                                </Select>
                             </div>
-
-                            {/* Font Size */}
                             <div className="space-y-2">
-                                <Label htmlFor="font-size">
-                                    Font Size{" "}
-                                    {nodeStyle.fontSize !== undefined
-                                        ? `(${nodeStyle.fontSize}px)`
-                                        : ""}
-                                </Label>
-                                {nodeStyle.fontSize !== undefined ? (
-                                    <Slider
-                                        id="font-size"
-                                        min={8}
-                                        max={24}
-                                        step={1}
-                                        value={[nodeStyle.fontSize]}
-                                        onValueChange={(value: number[]) =>
-                                            handleStyleChange(
-                                                "fontSize",
-                                                value[0]
-                                            )
-                                        }
-                                    />
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different font sizes
-                                    </div>
-                                )}
+                                <Label>Font Size</Label>
+                                <Slider
+                                    value={[nodeStyle?.fontSize || 12]}
+                                    min={8}
+                                    max={24}
+                                    step={1}
+                                    onValueChange={([value]) =>
+                                        handleStyleChange("fontSize", value)
+                                    }
+                                />
                             </div>
-
-                            {/* Opacity */}
                             <div className="space-y-2">
-                                <Label htmlFor="opacity">
-                                    Opacity{" "}
-                                    {nodeStyle.opacity !== undefined
-                                        ? `(${Math.round(
-                                              nodeStyle.opacity * 100
-                                          )}%)`
-                                        : ""}
-                                </Label>
-                                {nodeStyle.opacity !== undefined ? (
-                                    <Slider
-                                        id="opacity"
-                                        min={0.1}
-                                        max={1}
-                                        step={0.05}
-                                        value={[nodeStyle.opacity]}
-                                        onValueChange={(value: number[]) =>
-                                            handleStyleChange(
-                                                "opacity",
-                                                value[0]
-                                            )
-                                        }
-                                    />
-                                ) : (
-                                    <div className="text-xs text-amber-500">
-                                        Nodes have different opacity values
-                                    </div>
-                                )}
+                                <Label>Font Color</Label>
+                                <Input
+                                    type="color"
+                                    value={nodeStyle?.textColor || "#000000"}
+                                    onChange={(e) =>
+                                        handleStyleChange(
+                                            "textColor",
+                                            e.target.value
+                                        )
+                                    }
+                                />
                             </div>
-
-                            <Button
-                                variant="outline"
-                                onClick={handleResetStyle}
-                                className="w-full mt-4"
-                            >
-                                {multiSelection
-                                    ? "Reset All Styles"
-                                    : "Reset to Default Style"}
-                            </Button>
-                        </>
+                            <div className="space-y-2">
+                                <Label>Opacity</Label>
+                                <Slider
+                                    value={[nodeStyle?.opacity || 1]}
+                                    min={0}
+                                    max={1}
+                                    step={0.1}
+                                    onValueChange={([value]) =>
+                                        handleStyleChange("opacity", value)
+                                    }
+                                />
+                            </div>
+                        </div>
+                    ) : selectedEdges.length > 0 ? (
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <Label>Edge Style</Label>
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={handleResetEdgeStyle}
+                                >
+                                    Reset
+                                </Button>
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Color</Label>
+                                <Input
+                                    type="color"
+                                    value={edgeStyle?.stroke || "#1a192b"}
+                                    onChange={(e) =>
+                                        handleEdgeStyleChange(
+                                            "stroke",
+                                            e.target.value
+                                        )
+                                    }
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Width</Label>
+                                <Slider
+                                    value={[edgeStyle?.strokeWidth || 1]}
+                                    min={1}
+                                    max={10}
+                                    step={1}
+                                    onValueChange={([value]) =>
+                                        handleEdgeStyleChange(
+                                            "strokeWidth",
+                                            value
+                                        )
+                                    }
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Style</Label>
+                                <Select
+                                    value={edgeStyle?.strokeStyle || "solid"}
+                                    onValueChange={(
+                                        value: "solid" | "dashed" | "dotted"
+                                    ) =>
+                                        handleEdgeStyleChange(
+                                            "strokeStyle",
+                                            value
+                                        )
+                                    }
+                                >
+                                    <SelectTrigger>
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="solid">
+                                            Solid
+                                        </SelectItem>
+                                        <SelectItem value="dashed">
+                                            Dashed
+                                        </SelectItem>
+                                        <SelectItem value="dotted">
+                                            Dotted
+                                        </SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <div className="space-y-2">
+                                <Label>Opacity</Label>
+                                <Slider
+                                    value={[edgeStyle?.opacity || 1]}
+                                    min={0}
+                                    max={1}
+                                    step={0.1}
+                                    onValueChange={([value]) =>
+                                        handleEdgeStyleChange("opacity", value)
+                                    }
+                                />
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Label>Animated</Label>
+                                <input
+                                    type="checkbox"
+                                    checked={edgeStyle?.animated || false}
+                                    onChange={(e) =>
+                                        handleEdgeStyleChange(
+                                            "animated",
+                                            e.target.checked
+                                        )
+                                    }
+                                />
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="p-4 text-center text-muted-foreground">
+                            Select a node or edge to edit its style
+                        </div>
                     )}
                 </TabsContent>
             </Tabs>

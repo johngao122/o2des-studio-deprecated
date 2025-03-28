@@ -40,6 +40,8 @@ import { KeyboardShortcuts } from "@/lib/constants/shortcuts";
 import { useKeyboardShortcuts } from "@/lib/hooks/useKeyboardShortcuts";
 import { ShortcutsHelp } from "@/components/ShortcutsHelp";
 import { PropertiesBar } from "@/components/PropertiesBar";
+import { useEdgeStyleStore } from "@/lib/store/useEdgeStyleStore";
+import { useNodeStyleStore } from "@/lib/store/useNodeStyleStore";
 
 const debounce = (func: Function, wait: number) => {
     let timeout: NodeJS.Timeout;
@@ -101,6 +103,9 @@ export default function Draw() {
         addRecentProject,
     } = useProjectStore();
 
+    const { getEdgeStyle } = useEdgeStyleStore();
+    const { getNodeStyle } = useNodeStyleStore();
+
     const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
     const shouldCaptureHistory = useRef<boolean>(true);
     const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -108,6 +113,7 @@ export default function Draw() {
     const hasInitialized = useRef<boolean>(false);
 
     const [selectedNodes, setSelectedNodes] = useState<Node[]>([]);
+    const [selectedEdges, setSelectedEdges] = useState<Edge[]>([]);
 
     useEffect(() => {
         if (hasInitialized.current) {
@@ -140,14 +146,27 @@ export default function Draw() {
                 shouldCaptureHistory.current = true;
             }, 1500);
         } else if (savedNodes.length > 0 || savedEdges.length > 0) {
-            console.log("No history found, loading from auto-save");
+            console.log("No history found, loading from auto-save", {
+                nodes: savedNodes.length,
+                edges: savedEdges.length,
+            });
 
             shouldCaptureHistory.current = false;
-            loadFlow(savedNodes, savedEdges);
+
+            const processedEdges = savedEdges.map((edge) => ({
+                ...edge,
+                markerEnd: edge.markerEnd || { type: MarkerType.Arrow },
+                style: {
+                    ...edge.style,
+                    ...getEdgeStyle(edge.id),
+                },
+            }));
+
+            loadFlow(savedNodes, processedEdges);
             setLastAction("Loaded from auto-save");
 
             setTimeout(() => {
-                addToHistory(savedNodes, savedEdges);
+                addToHistory(savedNodes, processedEdges);
                 shouldCaptureHistory.current = true;
             }, 1000);
         } else {
@@ -355,11 +374,25 @@ export default function Draw() {
     };
 
     const handleSave = () => {
+        const nodesWithStyles = nodes.map((node) => ({
+            ...node,
+            style: undefined,
+            storedStyle: getNodeStyle(node.id),
+        }));
+
+        const edgesWithStyles = edges.map((edge) => ({
+            ...edge,
+            style: undefined,
+            storedStyle: getEdgeStyle(edge.id),
+        }));
+
         const diagramData = JSON.stringify(
             {
                 projectName,
-                nodes,
-                edges,
+                nodes: nodesWithStyles,
+                edges: edgesWithStyles,
+                defaultNodeStyle: useNodeStyleStore.getState().defaultStyle,
+                defaultEdgeStyle: useEdgeStyleStore.getState().defaultStyle,
             },
             null,
             2
@@ -394,11 +427,28 @@ export default function Draw() {
                         );
                     }
 
+                    if (loadedData.defaultNodeStyle) {
+                        useNodeStyleStore
+                            .getState()
+                            .updateDefaultStyle(loadedData.defaultNodeStyle);
+                    }
+                    if (loadedData.defaultEdgeStyle) {
+                        useEdgeStyleStore
+                            .getState()
+                            .updateDefaultStyle(loadedData.defaultEdgeStyle);
+                    }
+
                     for (const node of loadedData.nodes) {
                         if (!node.id || !node.position || !node.data) {
                             throw new Error(
                                 "Invalid node format: Missing required properties"
                             );
+                        }
+
+                        if (node.style) {
+                            useNodeStyleStore
+                                .getState()
+                                .updateNodeStyle(node.id, node.style);
                         }
                     }
 
@@ -408,15 +458,29 @@ export default function Draw() {
                                 "Invalid edge format: Missing source or target"
                             );
                         }
+
+                        if (edge.style) {
+                            const edgeId =
+                                edge.id ||
+                                `reactflow__edge-${edge.source}-${edge.target}`;
+                            useEdgeStyleStore
+                                .getState()
+                                .updateEdgeStyle(edgeId, edge.style);
+                        }
                     }
 
                     console.log("Loaded data:", loadedData);
 
                     console.log("Processing nodes...");
                     const loadedNodes = loadedData.nodes?.map((node: any) => {
+                        const nodeType =
+                            node.type === "ellipseNode"
+                                ? "ellipseNode"
+                                : "rectangleNode";
+
                         const processedNode = {
                             id: node.id,
-                            type: node.type || "rectangleNode",
+                            type: nodeType,
                             position: node.position,
                             data: node.data || { label: "Node" },
                             draggable: true,
@@ -424,7 +488,15 @@ export default function Draw() {
                             height: node.height || 40,
                             selected: false,
                             positionAbsolute: node.position,
+                            style: {},
                         };
+
+                        if (node.storedStyle) {
+                            useNodeStyleStore
+                                .getState()
+                                .updateNodeStyle(node.id, node.storedStyle);
+                        }
+
                         console.log(
                             `Processed node ${node.id}:`,
                             processedNode
@@ -434,10 +506,13 @@ export default function Draw() {
 
                     console.log("Processing edges...");
                     const loadedEdges = loadedData.edges?.map((edge: any) => {
+                        console.log("Processing edge:", edge);
+                        const edgeId =
+                            edge.id ||
+                            `reactflow__edge-${edge.source}-${edge.target}`;
+
                         const processedEdge = {
-                            id:
-                                edge.id ||
-                                `reactflow__edge-${edge.source}-${edge.target}`,
+                            id: edgeId,
                             source: edge.source,
                             target: edge.target,
                             sourceHandle: edge.sourceHandle,
@@ -445,7 +520,16 @@ export default function Draw() {
                             markerEnd: edge.markerEnd || {
                                 type: MarkerType.Arrow,
                             },
+                            style: {},
+                            animated: edge.animated || false,
                         };
+
+                        if (edge.storedStyle) {
+                            useEdgeStyleStore
+                                .getState()
+                                .updateEdgeStyle(edgeId, edge.storedStyle);
+                        }
+
                         console.log(
                             `Processed edge ${processedEdge.id}:`,
                             processedEdge
@@ -594,13 +678,31 @@ export default function Draw() {
 
     const handleConnect = useCallback(
         (params: Connection) => {
-            onConnect(params);
+            console.log("Creating new connection:", params);
+            const edgeStyle = getEdgeStyle(params.source + "-" + params.target);
+            console.log("Applying edge style to new connection:", edgeStyle);
+            onConnect({
+                ...params,
+                markerEnd: { type: MarkerType.Arrow },
+                style: {
+                    stroke: edgeStyle.stroke,
+                    strokeWidth: edgeStyle.strokeWidth,
+                    strokeDasharray:
+                        edgeStyle.strokeStyle === "dashed"
+                            ? "5,5"
+                            : edgeStyle.strokeStyle === "dotted"
+                            ? "1,5"
+                            : undefined,
+                    opacity: edgeStyle.opacity,
+                },
+                animated: edgeStyle.animated,
+            } as any);
             setTimeout(() => {
                 saveStateToHistory();
                 console.log("Saved history after connection");
             }, 50);
         },
-        [onConnect, saveStateToHistory]
+        [onConnect, saveStateToHistory, getEdgeStyle]
     );
 
     const handleDeleteNode = useCallback(
@@ -661,6 +763,46 @@ export default function Draw() {
         return () => clearTimeout(timer);
     }, [reactFlowInstance.current]);
 
+    useEffect(() => {
+        console.log("Updating edge styles for all edges");
+        if (edges.length === 0) return;
+
+        const updatedEdges = edges.map((edge) => {
+            const edgeStyle = getEdgeStyle(edge.id);
+            console.log("Edge style for", edge.id, ":", edgeStyle);
+
+            const isSelected = selectedEdges.some((e) => e.id === edge.id);
+
+            return {
+                ...edge,
+
+                className: isSelected ? "selected-edge" : "",
+                style: {
+                    ...edge.style,
+                    stroke: edgeStyle.stroke,
+                    strokeWidth: isSelected
+                        ? edgeStyle.strokeWidth + 2
+                        : edgeStyle.strokeWidth,
+                    strokeDasharray:
+                        edgeStyle.strokeStyle === "dashed"
+                            ? "5,5"
+                            : edgeStyle.strokeStyle === "dotted"
+                            ? "1,5"
+                            : undefined,
+                    opacity: edgeStyle.opacity,
+
+                    filter: isSelected
+                        ? "drop-shadow(0 0 5px #7c3aed)"
+                        : undefined,
+                },
+                animated: edgeStyle.animated,
+                markerEnd: edge.markerEnd || { type: MarkerType.Arrow },
+            };
+        });
+        console.log("Updated edges with new styles:", updatedEdges);
+        setEdges(updatedEdges);
+    }, [getEdgeStyle, selectedEdges]);
+
     return (
         <div
             className={`h-screen w-full flex flex-col ${
@@ -711,8 +853,13 @@ export default function Draw() {
                                         "Selected nodes:",
                                         params.nodes.length
                                     );
+                                    console.log(
+                                        "Selected edges:",
+                                        params.edges.length
+                                    );
 
                                     setSelectedNodes(params.nodes);
+                                    setSelectedEdges(params.edges);
                                 }}
                                 panOnDrag={[2]}
                                 defaultEdgeOptions={{
@@ -739,10 +886,12 @@ export default function Draw() {
                                     }
                                 />
                             </ReactFlow>
-
-                            {/* Properties bar on the right side */}
-                            <PropertiesBar selectedNodes={selectedNodes} />
                         </div>
+                        {/* Properties bar on the right side */}
+                        <PropertiesBar
+                            selectedNodes={selectedNodes}
+                            selectedEdges={selectedEdges}
+                        />
                     </div>
                 </div>
 
