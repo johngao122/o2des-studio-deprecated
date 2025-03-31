@@ -1,0 +1,13 @@
+{
+    "name": "o2des-studio-docs",
+    "version": "1.0.0",
+    "description": "Documentation for O2DES Studio",
+    "scripts": {
+        "start": "markbind serve",
+        "build": "markbind build",
+        "deploy": "markbind deploy"
+    },
+    "dependencies": {
+        "markbind-cli": "^5.6.0"
+    }
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 5.6.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><title>O2DES Studio - Architecture</title> <link rel="stylesheet" href="/markbind/css/bootstrap.min.css"> <link rel="stylesheet" href="/markbind/fontawesome/css/all.min.css"> <link rel="stylesheet" href="/markbind/glyphicons/css/bootstrap-glyphicons.min.css"><link rel="stylesheet" href="/markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="/markbind/css/markbind.min.css"><link rel="stylesheet" href="/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css"><link rel="stylesheet" href="/plugins/markbind-plugin-tree/markbind-plugin-tree.css">
+    
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<script>
+  const baseUrl = ''
+</script>
+<body >
+<div id="app" data-server-rendered="true"><header sticky=""><div data-v-7c0fd418><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-dark" data-v-7c0fd418><div class="container-fluid" data-v-7c0fd418><div class="navbar-left" data-v-7c0fd418><a href="/index.html" title="Home" class="navbar-brand" data-v-7c0fd418>O2DES Studio</a></div> <div class="navbar-default" data-v-7c0fd418><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-7c0fd418> <li data-v-7c0fd418><a href="/contents/getting-started.html" class="nav-link" data-v-7c0fd418>Getting Started</a></li> <li data-v-7c0fd418><a href="/contents/architecture.html" class="nav-link" data-v-7c0fd418>Architecture</a></li> <li class="nav-link dropdown" data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" data-v-99624572>Components <span data-v-99624572></span></a> <ul class="dropdown-menu" data-v-99624572> <li data-v-99624572><a href="/contents/components/index.html" class="dropdown-item" data-v-99624572>Overview</a></li> <li class="dropdown-item dropdown-submenu dropend" data-v-3c82541c data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-item submenu-toggle" data-v-3c82541c>Main Components</a> <ul class="dropdown-menu" data-v-3c82541c> <li data-v-3c82541c><a href="/contents/components/main/toolbar.html" class="dropdown-item" data-v-3c82541c>Toolbar</a></li> <li data-v-3c82541c><a href="/contents/components/main/properties-bar.html" class="dropdown-item" data-v-3c82541c>PropertiesBar</a></li> <li data-v-3c82541c><a href="/contents/components/main/component-drawer.html" class="dropdown-item" data-v-3c82541c>ComponentDrawer</a></li> <li data-v-3c82541c><a href="/contents/components/main/shortcuts-help.html" class="dropdown-item" data-v-3c82541c>ShortcutsHelp</a></li></ul></li> <li class="dropdown-item dropdown-submenu dropend" data-v-3c82541c data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-item submenu-toggle" data-v-3c82541c>Node Components</a> <ul class="dropdown-menu" data-v-3c82541c> <li data-v-3c82541c><a href="/contents/components/nodes/base-node.html" class="dropdown-item" data-v-3c82541c>BaseNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/rectangle-node.html" class="dropdown-item" data-v-3c82541c>RectangleNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/table-node.html" class="dropdown-item" data-v-3c82541c>TableNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/diamond-node.html" class="dropdown-item" data-v-3c82541c>DiamondNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/ellipse-node.html" class="dropdown-item" data-v-3c82541c>EllipseNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/custom-nodes.html" class="dropdown-item" data-v-3c82541c>CustomNodes</a></li></ul></li></ul></li></ul></div> <ul class="navbar-nav navbar-right" data-v-7c0fd418><li data-v-7c0fd418><form class="navbar-form" data-v-7c0fd418><div class="dropdown" style="position:relative;" data-v-4f6e9aec><input data-bs-toggle="dropdown" type="text" placeholder="Search" autocomplete="off" value="" class="form-control" data-v-4f6e9aec> <div class="form-control placeholder-div-hidden" data-v-4f6e9aec>
+      Search
+    </div> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-hidden dropdown-menu-end" data-v-4f6e9aec></ul></div></form></li></ul></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-7c0fd418><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" data-v-e6005420><div class="site-nav-top" data-v-e6005420><div class="fw-bold mb-2" style="font-size:1.25rem;" data-v-e6005420>Contents</div></div> <div class="nav-component slim-scroll" data-v-e6005420><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/index.html" data-v-e6005420>Home 🏠</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/getting-started.html" data-v-e6005420>Getting Started</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/architecture.html" data-v-e6005420>Architecture</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420>Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420><a href="/contents/components/index.html" data-v-e6005420>Overview</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Main Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/toolbar.html" data-v-e6005420>Toolbar</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/properties-bar.html" data-v-e6005420>PropertiesBar</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/component-drawer.html" data-v-e6005420>ComponentDrawer</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/shortcuts-help.html" data-v-e6005420>ShortcutsHelp</a></div></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Node Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/base-node.html" data-v-e6005420>BaseNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/rectangle-node.html" data-v-e6005420>RectangleNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/table-node.html" data-v-e6005420>TableNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/diamond-node.html" data-v-e6005420>DiamondNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/ellipse-node.html" data-v-e6005420>EllipseNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/custom-nodes.html" data-v-e6005420>CustomNodes</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper"><div data-v-ef898034><nav aria-label="breadcrumb" class="breadcrumb-divider" data-v-ef898034><ol class="breadcrumb" data-v-ef898034><li class="notlink breadcrumb-marker" data-v-ef898034>
+        ››  
+      </li> </ol></nav></div> <h1 id="architecture">Architecture<a href="#architecture" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <div class="lead">
+O2DES Studio is a Next.js-based web application for discrete event simulation modeling and visualization, featuring a modular component architecture.
+</div> <h2 id="project-structure">Project Structure<a href="#project-structure" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <pre><code class="hljs"><span>src/
+</span><span>├── app/              # Next.js app router pages
+</span><span>├── components/       # React components
+</span><span>│   ├── nodes/       # Node-related components
+</span><span>│   ├── ui/          # Reusable UI components
+</span><span>│   └── [root]       # Main components
+</span><span>├── controllers/      # Business logic
+</span><span>├── models/          # Data models
+</span><span>├── lib/             # Utilities and helpers
+</span><span>└── data/            # Static data and configs
+</span></code></pre><h2 id="component-architecture">Component Architecture<a href="#component-architecture" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <pre class="mermaid">graph TB
+    subgraph &quot;Main Components&quot;
+        Toolbar[&quot;Toolbar.tsx&quot;]
+        Properties[&quot;PropertiesBar.tsx&quot;]
+        Drawer[&quot;ComponentDrawer.tsx&quot;]
+        Shortcuts[&quot;ShortcutsHelp.tsx&quot;]
+    end
+
+    subgraph &quot;Node Components&quot;
+        BaseNode[&quot;BaseNode.tsx&quot;]
+        Registry[&quot;NodeRegistry.ts&quot;]
+        RectNode[&quot;RectangleNode.tsx&quot;]
+        TableNode[&quot;TableNode.tsx&quot;]
+        DiamondNode[&quot;DiamondNode.tsx&quot;]
+        EllipseNode[&quot;EllipseNode.tsx&quot;]
+    end
+
+    subgraph &quot;UI Components&quot;
+        Button[&quot;button.tsx&quot;]
+        Dropdown[&quot;dropdown-menu.tsx&quot;]
+        Input[&quot;input.tsx&quot;]
+        Select[&quot;select.tsx&quot;]
+        Slider[&quot;slider.tsx&quot;]
+        Tabs[&quot;tabs.tsx&quot;]
+    end
+
+    BaseNode --&gt; RectNode
+    BaseNode --&gt; TableNode
+    BaseNode --&gt; DiamondNode
+    BaseNode --&gt; EllipseNode
+    Registry --&gt; BaseNode
+
+    Toolbar --&gt; Button
+    Properties --&gt; Input
+    Drawer --&gt; Dropdown
+</pre> <h2 id="core-components">Core Components<a href="#core-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="node-system">Node System<a href="#node-system" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre class="mermaid">classDiagram
+
+    BaseNode &lt;|-- RectangleNode BaseNode &lt;|-- TableNode DiamondNode EllipseNode NodeRegistry --&gt; BaseNode
+    class BaseNode {
+        +render()
+        +handleResize()
+        +handleDrag()
+    }
+
+    class NodeRegistry {
+        +registerNode()
+        +getNode()
+        +listNodes()
+    }
+
+    class RectangleNode {
+        +dimensions
+        +render()
+    }
+
+    class TableNode {
+        +data
+        +columns
+        +render()
+    }
+
+    class DiamondNode {
+    }
+
+    class EllipseNode {
+    }
+&lt;/|--&gt;</pre> <h3 id="ui-component-system">UI Component System<a href="#ui-component-system" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre class="mermaid">graph LR
+    subgraph &quot;Atomic Components&quot;
+        Button[&quot;button.tsx&quot;]
+        Input[&quot;input.tsx&quot;]
+        Select[&quot;select.tsx&quot;]
+    end
+
+    subgraph &quot;Composite Components&quot;
+        Toolbar[&quot;Toolbar.tsx&quot;]
+        Properties[&quot;PropertiesBar.tsx&quot;]
+        Drawer[&quot;ComponentDrawer.tsx&quot;]
+    end
+
+    Button --&gt; Toolbar
+    Input --&gt; Properties
+    Select --&gt; Drawer
+</pre> <h2 id="state-management">State Management<a href="#state-management" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The application uses a combination of local component state and global state management:</p> <pre class="mermaid">flowchart TB
+    subgraph Global State
+        direction LR
+        NodeState[Node State]
+        UIState[UI State]
+        HistoryState[History State]
+    end
+
+    subgraph Components
+        direction LR
+        Nodes[Node Components]
+        UI[UI Components]
+        Tools[Tool Components]
+    end
+
+    NodeState --&gt; Nodes
+    UIState --&gt; UI
+    HistoryState --&gt; Tools
+</pre> <h2 id="data-flow">Data Flow<a href="#data-flow" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <pre class="mermaid">sequenceDiagram
+    participant User
+    participant UI Components
+    participant Node Components
+    participant State Management
+    participant Controllers
+
+    User-&gt;&gt;UI Components: Interact
+    UI Components-&gt;&gt;State Management: Update State
+    State Management-&gt;&gt;Node Components: Reflect Changes
+    Node Components-&gt;&gt;Controllers: Process Logic
+    Controllers-&gt;&gt;State Management: Update Results
+    State Management-&gt;&gt;UI Components: Update UI
+</pre> <h2 id="key-features">Key Features<a href="#key-features" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="1-node-system">1. Node System<a href="#1-node-system" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li>Base node architecture with extensible types</li> <li>Built-in shapes: Rectangle, Diamond, Ellipse, Table</li> <li>Custom node support</li> <li>Node registry for dynamic registration</li></ul> <h3 id="2-ui-components">2. UI Components<a href="#2-ui-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li>Comprehensive UI component library</li> <li>Consistent styling and behavior</li> <li>Responsive design</li> <li>Accessibility support</li></ul> <h3 id="3-tool-integration">3. Tool Integration<a href="#3-tool-integration" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <ul><li>Toolbar for common actions</li> <li>Properties panel for node configuration</li> <li>Component drawer for node selection</li> <li>Keyboard shortcuts support</li></ul> <h2 id="design-decisions">Design Decisions<a href="#design-decisions" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ol><li><p><strong>Component Architecture</strong></p> <ul><li>Modular component design</li> <li>Inheritance for node types</li> <li>Composition for UI components</li></ul></li> <li><p><strong>State Management</strong></p> <ul><li>Local state for UI interactions</li> <li>Global state for application data</li> <li>History state for undo/redo</li></ul></li> <li><p><strong>Styling</strong></p> <ul><li>Tailwind CSS for utility-first styling</li> <li>Consistent component theming</li> <li>Dark/light mode support</li></ul></li> <li><p><strong>Performance</strong></p> <ul><li>Component memoization</li> <li>Lazy loading where appropriate</li> <li>Optimized rendering strategies</li></ul></li></ol> <h2 id="technology-stack">Technology Stack<a href="#technology-stack" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><strong>Framework</strong>: Next.js 14</li> <li><strong>Language</strong>: TypeScript</li> <li><strong>Styling</strong>: Tailwind CSS</li> <li><strong>UI Library</strong>: Custom components</li> <li><strong>State Management</strong>: React hooks + Context</li></ul></div> <nav id="page-nav" data-v-e6005420><div class="nav-component slim-scroll" data-v-e6005420></div> <!----></nav> <div aria-hidden="true" class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;"><i class="fas fa-arrow-circle-up"></i></div></div> <footer><div class="text-center"><small>[Generated by <a href="https://markbind.org/">MarkBind 5.6.0</a>]</small></div></footer></div>
+</body><script src="/markbind/js/bootstrap-utility.min.js"></script>
+<script src="/markbind/js/polyfill.min.js"></script>
+<script src="/markbind/js/vue.min.js"></script>
+<script src="/markbind/js/markbind.min.js"></script>
+<script src="architecture.page-vue-render.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
+    <script type="module">
+    window.mermaidPromise = null;
+    
+    const loadMermaid = () => {
+      if (window.mermaidPromise === null) {
+        window.mermaidPromise = import('https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs')
+          .then(({ default: mermaid }) => {
+            mermaid.initialize({
+              startOnLoad: false,
+            });
+            console.log('Mermaid loaded successfully');
+            return mermaid;
+          })
+          .catch((error) => {
+            console.error('Mermaid failed to load:', error);
+            window.mermaidPromise = false;
+            return null;
+          });
+      }
+      return window.mermaidPromise;
+    };
+
+    const renderMermaidDiagrams = (elements) => {
+      if (!elements || elements.length === 0) {
+        return Promise.resolve();
+      }
+
+      return loadMermaid().then(mermaid => {
+        if (!mermaid) return;
+        return mermaid.run({ nodes: Array.from(elements) })
+          .catch(err => console.error('Error rendering mermaid diagrams:', err));
+      });
+    };
+
+    const setupMermaidObserver = () => {
+      const observer = new MutationObserver((mutations) => {
+        let newMermaidElements = [];
+        
+        mutations.forEach(mutation => {
+          if (mutation.addedNodes.length) {
+            mutation.addedNodes.forEach(node => {
+              if (node.nodeType === 1 && node.classList && 
+                  node.classList.contains('mermaid')) {
+                newMermaidElements.push(node);
+              }
+              
+              if (node.nodeType === 1 && node.querySelectorAll) {
+                const mermaidInNode = node.querySelectorAll('.mermaid');
+                if (mermaidInNode.length) {
+                  newMermaidElements = [...newMermaidElements, ...mermaidInNode];
+                }
+              }
+            });
+          }
+        });
+        
+        if (newMermaidElements.length > 0) {
+          renderMermaidDiagrams(newMermaidElements);
+        }
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      return observer;
+    };
+
+    // Initialize on DOM content loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      const existingDiagrams = document.querySelectorAll('.mermaid');
+      if (existingDiagrams.length > 0) {
+        renderMermaidDiagrams(existingDiagrams);
+      }
+      
+      setupMermaidObserver();
+    });
+
+  </script>
+</html>
