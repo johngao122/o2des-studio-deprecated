@@ -1,0 +1,83 @@
+{
+    "baseUrl": "/o2des-studio",
+    "titlePrefix": "O2DES Studio",
+    "enableMermaid": true,
+    "enableSearch": true,
+    "enablePageNav": true,
+    "titleSuffix": "",
+    "ignore": ["_site/*", "*.json", ".git/*"],
+    "pagesExclude": ["node_modules/*"],
+    "pages": [
+        {
+            "src": "index.md",
+            "title": "Home"
+        },
+        {
+            "src": "contents/getting-started.md",
+            "title": "Getting Started"
+        },
+        {
+            "src": "contents/architecture.md",
+            "title": "Architecture"
+        },
+        {
+            "src": "contents/components/index.md",
+            "title": "Components"
+        },
+        {
+            "src": "contents/components/main/index.md",
+            "title": "Main Components"
+        },
+        {
+            "src": "contents/components/main/toolbar.md",
+            "title": "Toolbar"
+        },
+        {
+            "src": "contents/components/main/properties-bar.md",
+            "title": "PropertiesBar"
+        },
+        {
+            "src": "contents/components/main/component-drawer.md",
+            "title": "ComponentDrawer"
+        },
+        {
+            "src": "contents/components/main/shortcuts-help.md",
+            "title": "ShortcutsHelp"
+        },
+        {
+            "src": "contents/components/nodes/index.md",
+            "title": "Node Components"
+        },
+        {
+            "src": "contents/components/nodes/base-node.md",
+            "title": "BaseNode"
+        },
+        {
+            "src": "contents/components/nodes/rectangle-node.md",
+            "title": "RectangleNode"
+        },
+        {
+            "src": "contents/components/nodes/table-node.md",
+            "title": "TableNode"
+        },
+        {
+            "src": "contents/components/nodes/diamond-node.md",
+            "title": "DiamondNode"
+        },
+        {
+            "src": "contents/components/nodes/ellipse-node.md",
+            "title": "EllipseNode"
+        },
+        {
+            "src": "contents/components/nodes/custom-nodes.md",
+            "title": "CustomNodes"
+        }
+    ],
+    "style": {
+        "codeTheme": "light"
+    },
+    "deploy": {
+        "message": "Site Update."
+    },
+    "plugins": ["mermaid"]
+}

@@ -1,0 +1,303 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "index.md",
+      "title": "Home",
+      "headings": {
+        "o2des-studio": "O2DES Studio",
+        "features": "Features",
+        "quick-links": "Quick Links",
+        "why-o2des-studio": "Why O2DES Studio?",
+        "powerful-simulation-engine": "Powerful Simulation Engine",
+        "modern-web-interface": "Modern Web Interface",
+        "developer-friendly": "Developer Friendly",
+        "getting-started": "Getting Started",
+        "community": "Community"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/getting-started.md",
+      "title": "Getting Started",
+      "headings": {
+        "getting-started": "Getting Started",
+        "prerequisites": "Prerequisites",
+        "installation": "Installation",
+        "key-features": "Key Features",
+        "flow-editor": "Flow Editor",
+        "simulation-controls": "Simulation Controls",
+        "keyboard-shortcuts": "Keyboard Shortcuts",
+        "best-practices": "Best Practices",
+        "troubleshooting": "Troubleshooting",
+        "common-issues": "Common Issues",
+        "next-steps": "Next Steps"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/architecture.md",
+      "title": "Architecture",
+      "headings": {
+        "architecture": "Architecture",
+        "project-structure": "Project Structure",
+        "component-architecture": "Component Architecture",
+        "core-components": "Core Components",
+        "node-system": "Node System",
+        "ui-component-system": "UI Component System",
+        "state-management": "State Management",
+        "data-flow": "Data Flow",
+        "key-features": "Key Features",
+        "1-node-system": "1. Node System",
+        "2-ui-components": "2. UI Components",
+        "3-tool-integration": "3. Tool Integration",
+        "design-decisions": "Design Decisions",
+        "technology-stack": "Technology Stack"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/index.md",
+      "title": "Components",
+      "headings": {
+        "components": "Components",
+        "component-categories": "Component Categories",
+        "node-components": "Node Components",
+        "main-components": "Main Components",
+        "utility-components": "Utility Components",
+        "best-practices": "Best Practices",
+        "testing-guide": "Testing Guide"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/main/index.md",
+      "title": "Main Components",
+      "headings": {
+        "main-components": "Main Components",
+        "overview": "Overview",
+        "components": "Components",
+        "toolbar": "Toolbar",
+        "propertiesbar": "PropertiesBar",
+        "componentdrawer": "ComponentDrawer",
+        "shortcutshelp": "ShortcutsHelp",
+        "integration": "Integration",
+        "component-manager": "Component Manager",
+        "workflow-example": "Workflow Example",
+        "state-management": "State Management",
+        "local-state": "Local State",
+        "global-state": "Global State",
+        "event-handling": "Event Handling",
+        "action-handlers": "Action Handlers",
+        "best-practices": "Best Practices",
+        "related-documentation": "Related Documentation"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/main/toolbar.md",
+      "title": "Toolbar",
+      "headings": {
+        "toolbar": "Toolbar",
+        "overview": "Overview",
+        "interface": "Interface",
+        "features": "Features",
+        "tool-management": "Tool Management",
+        "actions": "Actions",
+        "view-controls": "View Controls",
+        "usage": "Usage",
+        "default-tools": "Default Tools",
+        "events": "Events",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/main/properties-bar.md",
+      "title": "PropertiesBar",
+      "headings": {
+        "properties-bar": "Properties Bar",
+        "overview": "Overview",
+        "interface": "Interface",
+        "features": "Features",
+        "property-editing": "Property Editing",
+        "input-types": "Input Types",
+        "validation": "Validation",
+        "usage": "Usage",
+        "events": "Events",
+        "keyboard-shortcuts": "Keyboard Shortcuts",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/main/component-drawer.md",
+      "title": "ComponentDrawer",
+      "headings": {
+        "component-drawer": "Component Drawer",
+        "overview": "Overview",
+        "interface": "Interface",
+        "features": "Features",
+        "component-listing": "Component Listing",
+        "category-management": "Category Management",
+        "component-preview": "Component Preview",
+        "usage": "Usage",
+        "events": "Events",
+        "keyboard-shortcuts": "Keyboard Shortcuts",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/main/shortcuts-help.md",
+      "title": "ShortcutsHelp",
+      "headings": {
+        "shortcuts-help": "Shortcuts Help",
+        "overview": "Overview",
+        "interface": "Interface",
+        "features": "Features",
+        "shortcut-display": "Shortcut Display",
+        "categories": "Categories",
+        "accessibility": "Accessibility",
+        "usage": "Usage",
+        "default-shortcuts": "Default Shortcuts",
+        "general": "General",
+        "navigation": "Navigation",
+        "editing": "Editing",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/index.md",
+      "title": "Node Components",
+      "headings": {
+        "node-components": "Node Components",
+        "overview": "Overview",
+        "node-types": "Node Types",
+        "basenode": "BaseNode",
+        "rectanglenode": "RectangleNode",
+        "diamondnode": "DiamondNode",
+        "ellipsenode": "EllipseNode",
+        "tablenode": "TableNode",
+        "node-registry": "Node Registry",
+        "usage-example": "Usage Example",
+        "common-interfaces": "Common Interfaces",
+        "node-props": "Node Props",
+        "position-type": "Position Type",
+        "dimensions-type": "Dimensions Type",
+        "best-practices": "Best Practices",
+        "related-components": "Related Components"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/base-node.md",
+      "title": "BaseNode",
+      "headings": {
+        "basenode": "BaseNode",
+        "interfaces": "Interfaces",
+        "nodedata": "NodeData",
+        "nodestyles": "NodeStyles",
+        "nodepreviewstyles": "NodePreviewStyles",
+        "basenodeprops": "BaseNodeProps",
+        "default-styles": "Default Styles",
+        "node-styles": "Node Styles",
+        "preview-styles": "Preview Styles",
+        "methods": "Methods",
+        "getpreview": "getPreview",
+        "gettooltippreview": "getTooltipPreview",
+        "usage": "Usage"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/rectangle-node.md",
+      "title": "RectangleNode",
+      "headings": {
+        "rectanglenode": "RectangleNode",
+        "class-definition": "Class Definition",
+        "rectanglenodeclass": "RectangleNodeClass",
+        "component-implementation": "Component Implementation",
+        "features": "Features",
+        "styling": "Styling",
+        "usage": "Usage",
+        "handles": "Handles",
+        "style-customization": "Style Customization"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/table-node.md",
+      "title": "TableNode",
+      "headings": {
+        "tablenode": "TableNode",
+        "interfaces": "Interfaces",
+        "tablenodedata": "TableNodeData",
+        "class-definition": "Class Definition",
+        "tablenodeclass": "TableNodeClass",
+        "features": "Features",
+        "state-management": "State Management",
+        "table-store-functions": "Table Store Functions",
+        "editing-features": "Editing Features",
+        "cell-editing": "Cell Editing",
+        "header-editing": "Header Editing",
+        "keyboard-support": "Keyboard Support",
+        "usage": "Usage",
+        "styling": "Styling",
+        "preview-components": "Preview Components",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/diamond-node.md",
+      "title": "DiamondNode",
+      "headings": {
+        "diamondnode": "DiamondNode",
+        "class-definition": "Class Definition",
+        "diamondnodeclass": "DiamondNodeClass",
+        "features": "Features",
+        "implementation-details": "Implementation Details",
+        "shape-creation": "Shape Creation",
+        "label-handling": "Label Handling",
+        "usage": "Usage",
+        "styling": "Styling",
+        "preview-components": "Preview Components",
+        "best-practices": "Best Practices"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/ellipse-node.md",
+      "title": "EllipseNode",
+      "headings": {
+        "ellipsenode": "EllipseNode",
+        "class-definition": "Class Definition",
+        "ellipsenodeclass": "EllipseNodeClass",
+        "features": "Features",
+        "implementation-details": "Implementation Details",
+        "style-composition": "Style Composition",
+        "usage": "Usage",
+        "styling": "Styling",
+        "preview-components": "Preview Components",
+        "best-practices": "Best Practices",
+        "common-use-cases": "Common Use Cases"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/components/nodes/custom-nodes.md",
+      "title": "CustomNodes",
+      "headings": {
+        "custom-nodes": "Custom Nodes",
+        "exports": "Exports",
+        "usage": "Usage",
+        "legacy-usage-not-recommended": "Legacy Usage (Not Recommended)",
+        "recommended-usage": "Recommended Usage",
+        "migration": "Migration"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}

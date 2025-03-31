@@ -1,0 +1,31 @@
+2025-03-31T04:01:18.583Z - info: Initialization success.
+2025-03-31T04:01:26.101Z - info: Website generation started at 12:01:22 PM
+2025-03-31T04:01:27.872Z - info: Building assets...
+2025-03-31T04:01:28.662Z - info: Assets built
+2025-03-31T04:01:28.663Z - info: Generating pages...
+2025-03-31T04:01:29.182Z - error:  Template render error: (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/components.md) [Line 31, Column 18]
+  expected variable end
+    at Object._prettifyError (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/nunjucks/src/lib.js:32:11)
+    at Template.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:358:19)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:54:25
+    at createTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:121:7)
+    at handle (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:133:9)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:145:7
+    at next (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/nunjucks/src/lib.js:258:7)
+    at Object.asyncIter (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/nunjucks/src/lib.js:263:3)
+    at Environment.getTemplate (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/load-event.js:127:7)
+    at Environment.render (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/patches/nunjucks/context-overrides-frame.js:48:8)
+    at VariableRenderer.renderFile (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/variables/VariableRenderer.js:73:24)
+    at VariableProcessor.renderWithSiteVariables (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/variables/VariableProcessor.js:154:57)
+    at Page.<anonymous> (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/Page/index.js:494:45)
+    at Generator.next (<anonymous>)
+    at /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/Page/index.js:31:71
+    at new Promise (<anonymous>)
+2025-03-31T04:01:29.183Z - warn:  Error: Error while generating /Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/docs/contents/components.md
+    at Site.<anonymous> (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/Site/index.js:971:28)
+    at Generator.throw (<anonymous>)
+    at rejected (/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/node_modules/@markbind/core/src/Site/index.js:29:65)
+2025-03-31T04:01:29.666Z - info: Site data built
+2025-03-31T04:01:29.666Z - info: Website generation complete! Total build time: 6.714s
+2025-03-31T04:01:29.682Z - info: Serving "/Users/johngao/Desktop/Projects/O2DES Studio/o2des-studio/_site" at http://127.0.0.1:8080
+2025-03-31T04:01:29.682Z - info: Press CTRL+C to stop ...

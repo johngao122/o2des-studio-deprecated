@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="MarkBind 5.6.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><title>O2DES Studio - Node Components</title> <link rel="stylesheet" href="/markbind/css/bootstrap.min.css"> <link rel="stylesheet" href="/markbind/fontawesome/css/all.min.css"> <link rel="stylesheet" href="/markbind/glyphicons/css/bootstrap-glyphicons.min.css"><link rel="stylesheet" href="/markbind/css/codeblock-light.min.css"><link rel="stylesheet" href="/markbind/css/markbind.min.css"><link rel="stylesheet" href="/plugins/markbind-plugin-anchors/markbind-plugin-anchors.css"><link rel="stylesheet" href="/plugins/markbind-plugin-tree/markbind-plugin-tree.css">
+    
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<script>
+  const baseUrl = ''
+</script>
+<body >
+<div id="app" data-server-rendered="true"><header sticky=""><div data-v-7c0fd418><nav class="navbar navbar-expand-md d-print-none navbar-dark bg-dark" data-v-7c0fd418><div class="container-fluid" data-v-7c0fd418><div class="navbar-left" data-v-7c0fd418><a href="/index.html" title="Home" class="navbar-brand" data-v-7c0fd418>O2DES Studio</a></div> <div class="navbar-default" data-v-7c0fd418><ul class="navbar-nav me-auto mt-2 mt-lg-0" data-v-7c0fd418> <li data-v-7c0fd418><a href="/contents/getting-started.html" class="nav-link" data-v-7c0fd418>Getting Started</a></li> <li data-v-7c0fd418><a href="/contents/architecture.html" class="nav-link" data-v-7c0fd418>Architecture</a></li> <li class="nav-link dropdown" data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-toggle nav-link" data-v-99624572>Components <span data-v-99624572></span></a> <ul class="dropdown-menu" data-v-99624572> <li data-v-99624572><a href="/contents/components/index.html" class="dropdown-item" data-v-99624572>Overview</a></li> <li class="dropdown-item dropdown-submenu dropend" data-v-3c82541c data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-item submenu-toggle" data-v-3c82541c>Main Components</a> <ul class="dropdown-menu" data-v-3c82541c> <li data-v-3c82541c><a href="/contents/components/main/toolbar.html" class="dropdown-item" data-v-3c82541c>Toolbar</a></li> <li data-v-3c82541c><a href="/contents/components/main/properties-bar.html" class="dropdown-item" data-v-3c82541c>PropertiesBar</a></li> <li data-v-3c82541c><a href="/contents/components/main/component-drawer.html" class="dropdown-item" data-v-3c82541c>ComponentDrawer</a></li> <li data-v-3c82541c><a href="/contents/components/main/shortcuts-help.html" class="dropdown-item" data-v-3c82541c>ShortcutsHelp</a></li></ul></li> <li class="dropdown-item dropdown-submenu dropend" data-v-3c82541c data-v-99624572><a role="button" data-bs-toggle="dropdown" class="dropdown-item submenu-toggle" data-v-3c82541c>Node Components</a> <ul class="dropdown-menu" data-v-3c82541c> <li data-v-3c82541c><a href="/contents/components/nodes/base-node.html" class="dropdown-item" data-v-3c82541c>BaseNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/rectangle-node.html" class="dropdown-item" data-v-3c82541c>RectangleNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/table-node.html" class="dropdown-item" data-v-3c82541c>TableNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/diamond-node.html" class="dropdown-item" data-v-3c82541c>DiamondNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/ellipse-node.html" class="dropdown-item" data-v-3c82541c>EllipseNode</a></li> <li data-v-3c82541c><a href="/contents/components/nodes/custom-nodes.html" class="dropdown-item" data-v-3c82541c>CustomNodes</a></li></ul></li></ul></li></ul></div> <ul class="navbar-nav navbar-right" data-v-7c0fd418><li data-v-7c0fd418><form class="navbar-form" data-v-7c0fd418><div class="dropdown" style="position:relative;" data-v-4f6e9aec><input data-bs-toggle="dropdown" type="text" placeholder="Search" autocomplete="off" value="" class="form-control" data-v-4f6e9aec> <div class="form-control placeholder-div-hidden" data-v-4f6e9aec>
+      Search
+    </div> <ul class="dropdown-menu search-dropdown-menu dropdown-menu-hidden dropdown-menu-end" data-v-4f6e9aec></ul></div></form></li></ul></div></nav> <div class="lower-navbar-container" style="display:none;" data-v-7c0fd418><!----> <!----></div></div></header> <div id="flex-body"><nav id="site-nav" data-v-e6005420><div class="site-nav-top" data-v-e6005420><div class="fw-bold mb-2" style="font-size:1.25rem;" data-v-e6005420>Contents</div></div> <div class="nav-component slim-scroll" data-v-e6005420><div class="site-nav-root"><ul class="site-nav-list site-nav-list-root" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/index.html" data-v-e6005420>Home 🏠</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/getting-started.html" data-v-e6005420>Getting Started</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420><a href="/contents/architecture.html" data-v-e6005420>Architecture</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-0" data-v-e6005420>Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420><a href="/contents/components/index.html" data-v-e6005420>Overview</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Main Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/toolbar.html" data-v-e6005420>Toolbar</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/properties-bar.html" data-v-e6005420>PropertiesBar</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/component-drawer.html" data-v-e6005420>ComponentDrawer</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/main/shortcuts-help.html" data-v-e6005420>ShortcutsHelp</a></div></li></ul></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-1" data-v-e6005420>Node Components 
+
+<div class="site-nav-dropdown-btn-container" data-v-e6005420><i onclick="handleSiteNavClick(this.parentNode.parentNode, false); event.stopPropagation();" class="site-nav-dropdown-btn-icon site-nav-rotate-icon" data-v-e6005420><span aria-hidden="true" class="glyphicon glyphicon-menu-down" data-v-e6005420></span></i></div></div><ul class="site-nav-dropdown-container site-nav-dropdown-container-open site-nav-list" data-v-e6005420><li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/base-node.html" data-v-e6005420>BaseNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/rectangle-node.html" data-v-e6005420>RectangleNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/table-node.html" data-v-e6005420>TableNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/diamond-node.html" data-v-e6005420>DiamondNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/ellipse-node.html" data-v-e6005420>EllipseNode</a></div></li> <li data-v-e6005420><div onclick="handleSiteNavClick(this)" class="site-nav-default-list-item site-nav-list-item-2" data-v-e6005420><a href="/contents/components/nodes/custom-nodes.html" data-v-e6005420>CustomNodes</a></div></li></ul></li></ul></li> <!----></ul></div></div> <!----></nav> <div id="content-wrapper"><div data-v-ef898034><nav aria-label="breadcrumb" class="breadcrumb-divider" data-v-ef898034><ol class="breadcrumb" data-v-ef898034><li class="notlink breadcrumb-marker" data-v-ef898034>
+        ››  
+      </li> </ol></nav></div> <h1 id="node-components">Node Components<a href="#node-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h1> <div class="lead">
+Core node components that form the building blocks of the diagram system.
+</div> <h2 id="overview">Overview<a href="#overview" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <p>The node system is built on a hierarchical architecture with <code class="hljs inline no-lang">BaseNode</code> as the foundation. Each specialized node type extends the base functionality while adding its own unique features.</p> <pre class="mermaid">classDiagram
+    class BaseNode {
+        +render()
+        +handleResize()
+        +handleDrag()
+        +dimensions: Dimensions
+        +position: Position
+    }
+
+    class RectangleNode {
+        +render()
+        +dimensions: Dimensions
+    }
+
+    class DiamondNode {
+        +render()
+        +calculatePoints()
+    }
+
+    class EllipseNode {
+        +render()
+        +radiusX: number
+        +radiusY: number
+    }
+
+    class TableNode {
+        +render()
+        +data: any[]
+        +columns: Column[]
+    }
+
+    BaseNode &lt;|-- RectangleNode BaseNode &lt;|-- DiamondNode EllipseNode TableNode &lt; pre&gt;
+<h2 id="node-types">Node Types<a href="#node-types" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2>
+<h3 id="basenode"><a href="/contents/components/nodes/base-node.html">BaseNode</a><a href="#basenode" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3>
+<p>The foundation component providing core node functionality:</p>
+<ul>
+<li>Position management</li>
+<li>Resize handling</li>
+<li>Drag behavior</li>
+<li>Selection state</li>
+</ul>
+<h3 id="rectanglenode"><a href="/contents/components/nodes/rectangle-node.html">RectangleNode</a><a href="#rectanglenode" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3>
+<p>Basic rectangular node:</p>
+<ul>
+<li>Configurable dimensions</li>
+<li>Corner radius</li>
+<li>Background styling</li>
+</ul>
+<h3 id="diamondnode"><a href="/contents/components/nodes/diamond-node.html">DiamondNode</a><a href="#diamondnode" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3>
+<p>Diamond-shaped node:</p>
+<ul>
+<li>Point calculation</li>
+<li>Rotation support</li>
+<li>Path-based rendering</li>
+</ul>
+<h3 id="ellipsenode"><a href="/contents/components/nodes/ellipse-node.html">EllipseNode</a><a href="#ellipsenode" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3>
+<p>Elliptical node:</p>
+<ul>
+<li>Configurable radii</li>
+<li>SVG-based rendering</li>
+<li>Aspect ratio maintenance</li>
+</ul>
+<h3 id="tablenode"><a href="/contents/components/nodes/table-node.html">TableNode</a><a href="#tablenode" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3>
+<p>Complex data display node:</p>
+<ul>
+<li>Tabular data rendering</li>
+<li>Column configuration</li>
+<li>Sorting and filtering</li>
+<li>Pagination support</li>
+</ul>
+<h2 id="node-registry">Node Registry<a href="#node-registry" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2>
+<p>The <code class="hljs inline no-lang">NodeRegistry</code> manages node type registration and instantiation:</p>
+<pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> NodeRegistry {
+</span><span>    registerNode(<span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>, <span class="hljs-attr">component</span>: React.ComponentType&lt;NodeProps&gt;): <span class="hljs-built_in">void</span>;
+</span><span>    getNode(<span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>): React.ComponentType&lt;NodeProps&gt; | <span class="hljs-literal">undefined</span>;
+</span><span>    listNodes(): <span class="hljs-built_in">string</span>[];
+</span><span>}
+</span></code></pre><h3 id="usage-example">Usage Example<a href="#usage-example" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-comment">// Registering a node type</span>
+</span><span>NodeRegistry.registerNode(<span class="hljs-string">&quot;rectangle&quot;</span>, RectangleNode);
+</span><span>
+</span><span><span class="hljs-comment">// Creating a node instance</span>
+</span><span><span class="hljs-keyword">const</span> NodeComponent = NodeRegistry.getNode(<span class="hljs-string">&quot;rectangle&quot;</span>);
+</span><span><span class="hljs-keyword">if</span> (NodeComponent) {
+</span><span>    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">NodeComponent</span> {<span class="hljs-attr">...props</span>} /&gt;</span></span>;
+</span><span>}
+</span></code></pre><h2 id="common-interfaces">Common Interfaces<a href="#common-interfaces" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <h3 id="node-props">Node Props<a href="#node-props" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> NodeProps {
+</span><span>    <span class="hljs-attr">id</span>: <span class="hljs-built_in">string</span>;
+</span><span>    <span class="hljs-keyword">type</span>: <span class="hljs-built_in">string</span>;
+</span><span>    position: Position;
+</span><span>    selected?: <span class="hljs-built_in">boolean</span>;
+</span><span>    data?: <span class="hljs-built_in">any</span>;
+</span><span>    style?: React.CSSProperties;
+</span><span>    onResize?: <span class="hljs-function">(<span class="hljs-params">dimensions: Dimensions</span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+</span><span>    onDrag?: <span class="hljs-function">(<span class="hljs-params">position: Position</span>) =&gt;</span> <span class="hljs-built_in">void</span>;
+</span><span>}
+</span></code></pre><h3 id="position-type">Position Type<a href="#position-type" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> Position {
+</span><span>    <span class="hljs-attr">x</span>: <span class="hljs-built_in">number</span>;
+</span><span>    y: <span class="hljs-built_in">number</span>;
+</span><span>}
+</span></code></pre><h3 id="dimensions-type">Dimensions Type<a href="#dimensions-type" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h3> <pre><code class="hljs typescript"><span><span class="hljs-keyword">interface</span> Dimensions {
+</span><span>    <span class="hljs-attr">width</span>: <span class="hljs-built_in">number</span>;
+</span><span>    height: <span class="hljs-built_in">number</span>;
+</span><span>}
+</span></code></pre><h2 id="best-practices">Best Practices<a href="#best-practices" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ol><li><p><strong>Extending BaseNode</strong></p> <ul><li>Always extend from BaseNode for consistency</li> <li>Implement required methods</li> <li>Maintain prop interface compatibility</li></ul></li> <li><p><strong>Performance</strong></p> <ul><li>Memoize expensive calculations</li> <li>Use React.memo for pure components</li> <li>Optimize render methods</li></ul></li> <li><p><strong>Styling</strong></p> <ul><li>Use Tailwind classes</li> <li>Support theme variants</li> <li>Maintain consistent styling API</li></ul></li> <li><p><strong>State Management</strong></p> <ul><li>Keep node state minimal</li> <li>Use callbacks for updates</li> <li>Handle selection properly</li></ul></li></ol> <h2 id="related-components">Related Components<a href="#related-components" onclick="event.stopPropagation()" class="fa fa-anchor"></a></h2> <ul><li><a href="/contents/components/toolbar.html">Toolbar</a></li> <li><a href="/contents/components/properties-bar.html">PropertiesBar</a></li> <li><a href="/contents/components/component-drawer.html">ComponentDrawer</a></li></ul>
+&lt;/|--&gt;</pre></div> <nav id="page-nav" data-v-e6005420><div class="nav-component slim-scroll" data-v-e6005420></div> <!----></nav> <div aria-hidden="true" class="scroll-top-button fa-lg d-print-none" style="display:none;bottom:2%;right:2%;position:fixed;"><i class="fas fa-arrow-circle-up"></i></div></div> <footer><div class="text-center"><small>[Generated by <a href="https://markbind.org/">MarkBind 5.6.0</a>]</small></div></footer></div>
+</body><script src="/markbind/js/bootstrap-utility.min.js"></script>
+<script src="/markbind/js/polyfill.min.js"></script>
+<script src="/markbind/js/vue.min.js"></script>
+<script src="/markbind/js/markbind.min.js"></script>
+<script src="index.page-vue-render.js"></script>
+<script>
+  MarkBind.setupWithSearch()
+</script>
+    <script type="module">
+    window.mermaidPromise = null;
+    
+    const loadMermaid = () => {
+      if (window.mermaidPromise === null) {
+        window.mermaidPromise = import('https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs')
+          .then(({ default: mermaid }) => {
+            mermaid.initialize({
+              startOnLoad: false,
+            });
+            console.log('Mermaid loaded successfully');
+            return mermaid;
+          })
+          .catch((error) => {
+            console.error('Mermaid failed to load:', error);
+            window.mermaidPromise = false;
+            return null;
+          });
+      }
+      return window.mermaidPromise;
+    };
+
+    const renderMermaidDiagrams = (elements) => {
+      if (!elements || elements.length === 0) {
+        return Promise.resolve();
+      }
+
+      return loadMermaid().then(mermaid => {
+        if (!mermaid) return;
+        return mermaid.run({ nodes: Array.from(elements) })
+          .catch(err => console.error('Error rendering mermaid diagrams:', err));
+      });
+    };
+
+    const setupMermaidObserver = () => {
+      const observer = new MutationObserver((mutations) => {
+        let newMermaidElements = [];
+        
+        mutations.forEach(mutation => {
+          if (mutation.addedNodes.length) {
+            mutation.addedNodes.forEach(node => {
+              if (node.nodeType === 1 && node.classList && 
+                  node.classList.contains('mermaid')) {
+                newMermaidElements.push(node);
+              }
+              
+              if (node.nodeType === 1 && node.querySelectorAll) {
+                const mermaidInNode = node.querySelectorAll('.mermaid');
+                if (mermaidInNode.length) {
+                  newMermaidElements = [...newMermaidElements, ...mermaidInNode];
+                }
+              }
+            });
+          }
+        });
+        
+        if (newMermaidElements.length > 0) {
+          renderMermaidDiagrams(newMermaidElements);
+        }
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+      
+      return observer;
+    };
+
+    // Initialize on DOM content loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      const existingDiagrams = document.querySelectorAll('.mermaid');
+      if (existingDiagrams.length > 0) {
+        renderMermaidDiagrams(existingDiagrams);
+      }
+      
+      setupMermaidObserver();
+    });
+
+  </script>
+</html>
